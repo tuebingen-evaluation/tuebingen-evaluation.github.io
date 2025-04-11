@@ -140,7 +140,12 @@
             color: rgba(255,255,255,0.9);
             max-width: 600px;
         }
-        
+
+        .hero-text p span.highlight {
+            color: var(--secondary);
+            font-weight: 500;
+        }
+
         .btn {
             display: inline-block;
             background-color: var(--secondary);
@@ -206,7 +211,7 @@
         }
         
         .feature-card.expanded {
-            max-height: 700px;
+            max-height: 1100px;
         }
         
         .feature-card:hover {
@@ -657,6 +662,21 @@
         .publication-list a:hover {
             text-decoration: underline;
         }
+        
+        /* Nur Team-Karten anpassen */
+        .team-members .feature-card {
+            min-height: 400px;  /* Feste Mindesthöhe */
+            height: auto;       /* Erlaubt Erweiterung bei mehr Inhalt */
+            padding-bottom: 2rem;
+        }
+
+        .team-members .feature-card h3 {
+            margin-top: 1.5rem;
+        }
+
+        .team-members .feature-card .title {
+            margin-bottom: 1.5rem;
+        }
     </style>
 </head>
 <body>
@@ -686,13 +706,16 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-image">
-                    <img src="TE_logo_0.png" alt="Company Logo" style="width:70%; height:0%; object-fit: contain;">
+                    <img src="TE_logo_0.png" alt="Company Logo" style="width:85%; height:0%; object-fit: contain;">
                 </div>
                 <div class="hero-text">
                     <h1>KI-Evaluierung & Compliance nach höchsten Standards</h1>
                     <p>TÜ.EVAL bietet umfassende Evaluierungs- und Zertifizierungsdienstleistungen für KI-Systeme – maßgeschneidert für den deutschen und europäischen Markt.
-                        Wir bieten als Einzige die sich ergänzende Erkennung und Erfüllung aller für Sie relevanten Compliance-Standards in einem Service.
-                        Unsere Lösungen kombinieren regulatorisches Know-How mit voller technischer Überprüfung und Beratung, um Ihnen einen entscheidenden Wettbewerbsvorteil zu verschaffen.</p>
+                        Unsere Lösungen kombinieren regulatorisches Know-How mit voller technischer Überprüfung und Beratung, um Ihnen einen entscheidenden Wettbewerbsvorteil zu verschaffen.
+                    </p>
+                    <p>                        
+                        <span class="highlight">Wir bieten als Einzige die sich ergänzende Erkennung und Erfüllung des kompletten für Ihren KI-Einsatz relevanten Risikomanagements in einem Service.</span>
+                    </p>
                     <a href="#contact" class="btn">Kontakt aufnehmen</a>
                     <a href="#services" class="btn btn-outline">Unsere Leistungen</a>
                 </div>
@@ -880,23 +903,69 @@
         <div class="container">
             <h2>Gründungsteam</h2>
             <div class="team-members">
-                <div class="team-member">
-                    <img src="https://via.placeholder.com/150" alt="Julian Bitterwolf">
+                <div class="feature-card">
+                    <img src="CVAIincWIN_julian_circle.jpeg" alt="Julian Bitterwolf" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; border: 3px solid var(--accent);">
                     <h3>Dr. Julian Bitterwolf</h3>
                     <div class="title">Mitgründer & Benchmarking-Experte</div>
                     <p>Promovierter Informatiker mit Fokus auf Robustheit von KI-Modellen und Out-of-Distribution Detection.</p>
+                    <div class="additional-content">
+                        <h4>Ausgewählte Publikationen:</h4>
+                        <ul class="publication-list">
+                            <li><a href="https://github.com/j-cb/NINCO" target="_blank">"In or Out? Fixing ImageNet OOD Detection [The NINCO dataset]" (ICML 2023)</a></li>
+                            <li><a href="https://github.com/j-cb/GOOD" target="_blank">"Certifiably Adversarially Robust Detection of Out-of-Distribution Data" (NeurIPS 2020)</a></li>
+                            <li><a href="https://github.com/max-andr/relu_networks_overconfident" target="_blank">"Why relu networks yield high-confidence predictions far away from the training data and how to mitigate the problem (NeurIPS 2019)</a></li>
+                        </ul>
+                        <h4>Branchenerfahrung:</h4>
+                        <ul>
+                            <li>ICML Workshop Organizer, "Shift happens: Crowdsourcing metrics and test datasets
+                                beyond ImageNet"</li>
+                            <li>Internship Amazon, AGI Team</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="team-member">
-                    <img src="https://via.placeholder.com/150" alt="Valentyn Boreiko">
+                
+                <div class="feature-card">
+                    <img src="valentyn_circle.png" alt="Valentyn Boreiko" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; border: 3px solid var(--accent);">
                     <h3>Valentyn Boreiko</h3>
                     <div class="title">Mitgründer & KI-Anwendungsexperte</div>
                     <p>Experte für erklärbare KI und adversariale Angriffe. Mitgründer von Studyly GmbH.</p>
+                    <div class="additional-content">
+                        <h4>Ausgewählte Publikationen:</h4>
+                        <ul class="publication-list">
+                            <li><a href="https://github.com/valentyn1boreiko/llm-threat-model" target="_blank">"A Realistic Threat Model for LLM Jailbreaks" (NeurIPS 2024)</a></li>
+                            <li><a href="https://openaccess.thecvf.com/content/ICCV2023W/BRAVO/html/Boreiko_Identifying_Systematic_Errors_in_Object_Detectors_with_the_SCROD_Pipeline_ICCVW_2023_paper.html" target="_blank">"Identifying Systematic Errors in Object Detectors" (ICCV 2023)</a></li>
+                            <li><a href="https://github.com/valentyn1boreiko/dvces" target="_blank">"Diffusion Visual Counterfactual Explanations" (NeurIPS 2022)</a></li>
+                        </ul>
+                        <h4>Branchenerfahrung:</h4>
+                        <ul>
+                            <li>Internship Amazon AWS</li>
+                            <li>Internship Bosch AI Research</li>
+                            <li>OpenAI Red-Teaming Contractor</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="team-member">
-                    <img src="https://via.placeholder.com/150" alt="Maximilian Bitterwolf">
+                
+                <div class="feature-card">
+                    <img src="maximilian_circle.jpg" alt="Maximilian Bitterwolf" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; border: 3px solid var(--accent);">
                     <h3>Maximilian Bitterwolf</h3>
                     <div class="title">Mitgründer & Compliance-Experte</div>
                     <p>Wirtschaftsrechtsexperte mit Spezialisierung auf Technologieregulierung und Compliance im KI-Bereich.</p>
+                    <div class="additional-content">
+                        <h4>Schwerpunkte:</h4>
+                        <ul>
+                            <li>Risikomanagement</li>
+                            <li>EU AI Act Implementierung</li>
+                            <li>Produkthaftungsrichtlinie (EU) 2024/2853</li>
+                            <li>DSGVO-Konformität</li>
+                        </ul>
+                        <!--
+                        <h4>Branchenerfahrung:</h4>
+                        <ul>
+                            <li>Burda Media Compliance</li>
+                            <li>Masterarbeit:</li>
+                        </ul>
+                        -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -973,7 +1042,7 @@
                         <li>DIN SPEC 92005 (Unsicherheiten)</li>
                         <li>AlpacaEval 2.0 (Ethische Ausrichtung)</li>
                     </ul>
-                    <p>Zertifizierungsvorbereitung in Kooperation mit DEKRA.</p>
+                    <p>Vorbereitung geprüfter Siegel zur Compliance-Zertifizierung.</p>
                 </div>
             </div>
             
@@ -1053,70 +1122,6 @@
             </div>
         </div>
     </section>
-    
-    
-    <!-- Team-Detailseite: Ausführlichere Vorstellung
-    <section id="team" class="team-expanded">
-        <div class="container">
-            <h2>Unser Team & Expertise</h2>
-            <p>Unsere hochqualifizierten Experten vereinen technische, rechtliche und unternehmerische Expertise, um Ihr KI-System optimal zu evaluieren und zu verbessern.</p>
-            <div class="team-details">
-                <div class="team-detail-card">
-                    <img src="https://via.placeholder.com/150" alt="Julian Bitterwolf">
-                    <h3>Dr. Julian Bitterwolf</h3>
-                    <div class="team-title">Mitgründer & Benchmarking-Experte</div>
-                    <p>Experte in der Entwicklung und Anwendung fortschrittlicher Evaluierungsmethoden für KI-Systeme, mit Schwerpunkt auf Robustheit und Compliance.</p>
-                    <h4>Ausgewählte Publikationen:</h4>
-                    <ul class="publication-list">
-                        <li><a href="https://github.com/j-cb/NINCO" target="_blank">"In or Out? Fixing ImageNet OOD Detection" (ICML 2023)</a></li>
-                        <li><a href="https://github.com/j-cb/GOOD" target="_blank">"Certifiably Robust OOD Detection" (NeurIPS 2020)</a></li>
-                        <li>"Breaking Down OOD Detection" (ICML 2022)</li>
-                    </ul>
-                    <h4>Zertifizierungen:</h4>
-                    <ul>
-                        <li>BSI Security of AI Systems</li>
-                        <li>Amazon AWS Certified AI Practitioner</li>
-                    </ul>
-                </div>
-                <div class="team-detail-card">
-                    <img src="https://via.placeholder.com/150" alt="Valentyn Boreiko">
-                    <h3>Valentyn Boreiko</h3>
-                    <div class="team-title">Mitgründer & KI-Anwendungsexperte</div>
-                    <p>Spezialist für erklärbare KI und adversariale Angriffe, mit fundierter Erfahrung in Forschung und Praxis.</p>
-                    <h4>Ausgewählte Publikationen:</h4>
-                    <ul class="publication-list">
-                        <li><a href="#" target="_blank">"A Realistic Threat Model for LLM Jailbreaks" (NeurIPS 2024)</a></li>
-                        <li>"Diffusion Visual Counterfactual Explanations" (NeurIPS 2022)</li>
-                        <li>"Identifying Systematic Errors in Object Detectors" (NeurIPS 2024)</li>
-                    </ul>
-                    <h4>Branchenerfahrung:</h4>
-                    <ul>
-                        <li>Siemens (Data Science)</li>
-                        <li>Bosch AI Research</li>
-                        <li>OpenAI Red-Teaming Contractor</li>
-                    </ul>
-                </div>
-                <div class="team-detail-card">
-                    <img src="https://via.placeholder.com/150" alt="Maximilian Bitterwolf">
-                    <h3>Maximilian Bitterwolf</h3>
-                    <div class="team-title">Mitgründer & Compliance-Experte</div>
-                    <p>Experte in wirtschaftsrechtlichen Fragestellungen und Technologieregulierung, spezialisiert auf den KI-Bereich.</p>
-                    <h4>Schwerpunkte:</h4>
-                    <ul>
-                        <li>EU AI Act Implementierung</li>
-                        <li>Produkthaftungsrichtlinie (EU) 2024/2853</li>
-                        <li>DSGVO-Konformität</li>
-                    </ul>
-                    <h4>Netzwerk:</h4>
-                    <ul>
-                        <li>DEKRA Zertifizierungsstelle</li>
-                        <li>Europäisches Institut für Technologierecht</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-     -->
 
     <!-- Kostenrechner: Berechnung des Compliance-Risikos -->
     <section id="calculator" class="calculator">
