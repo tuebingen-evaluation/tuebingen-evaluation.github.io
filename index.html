@@ -390,6 +390,16 @@
         }
         
         /* Responsive Anpassungen */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        
         @media (max-width: 1024px) {
             .hero-content {
                 flex-direction: column;
@@ -411,20 +421,72 @@
         }
         
         @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+        
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(0,0,0,0.9);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
             }
             
+            .nav-links.active {
+                display: flex;
+            }
+        
+            header {
+                padding: 0.5rem 0;
+            }
+        
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2rem;
+            }
+        
+            .features {
+                grid-template-columns: 1fr;
+            }
+        
+            .roadmap-item {
+                width: 100% !important;
+                padding: 1rem !important;
+                border: none !important;
+            }
+        
+            .roadmap-item:nth-child(odd),
+            .roadmap-item:nth-child(even) {
+                left: 0;
+                border-left: 2px solid var(--accent);
+                padding-left: 2rem;
+            }
+        
+            .team-member img {
+                width: 120px;
+                height: 120px;
+            }
+        
+            .calculator-container {
+                width: 95%;
+            }
+        
+            .nav-links a {
+                padding: 0.5rem;
             }
             
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .benchmark-list {
-                columns: 1;
+            .btn {
+                padding: 1rem 2rem;
+                margin: 0.5rem 0;
             }
         }
         
@@ -689,6 +751,7 @@
                         <img src="TE_logo_0_reduced.png" alt="TÜ.EVAL Logo">
                     </div>
                 </a>
+                <button class="menu-toggle">☰</button>
                 <div class="nav-links">
                     <a href="#services">Dienstleistungen</a>
                     <a href="#methods">Methoden</a>
@@ -1258,7 +1321,21 @@
                 });
             });
         });
+
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
         
+        // Ensure menu closes when clicking outside
+        document.addEventListener('click', function(event) {
+            const navLinks = document.querySelector('.nav-links');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+
         // Funktion zum Umschalten der Anzeige von FAQ-Antworten
         function toggleAnswer(id) {
             const answer = document.getElementById('answer' + id);
