@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TÜ.EVAL - KI-Evaluierung & Compliance</title>
+    <title>MIMIR - Intelligent AI Routing & Evaluation</title>
     <style>
         /* Variablendeklarationen für Farben, Gradienten und weitere Style-Optionen */
         :root {
@@ -247,17 +247,17 @@
         }
         
         /* Dienstleistungsbereich: Weitere anpassbare Karten für verschiedene Angebote */
-        .services {
+        .products {
             background-color: rgba(0, 0, 0, 0.6);
         }
         
-        .service-tiers {
+        .product-tiers {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
         
-        .service-tier {
+        .product-tier {
             background-color: rgba(0, 0, 0, 0.4);
             border-radius: 8px;
             padding: 2rem;
@@ -267,8 +267,8 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
         
-        .service-tier.popular::before {
-            content: "Einstieg";
+        .product-tier.popular::before {
+            content: "Most Popular";
             position: absolute;
             top: 10px;
             right: -30px;
@@ -280,13 +280,10 @@
             font-weight: bold;
         }
         
-        .service-tier h3 {
+        .product-tier h3 {
             color: var(--secondary);
             margin-top: 0;
         }
-        
-        /* Im Angebot werden jetzt keine Preisangaben mehr angezeigt.
-           Um die Angebote weiter anzupassen, können hier zusätzliche Infos ergänzt werden. */
         
         .team {
             text-align: center;
@@ -739,6 +736,77 @@
         .team-members .feature-card .title {
             margin-bottom: 1.5rem;
         }
+        
+        /* New styles for product highlights */
+        .product-highlight {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .product-highlight.reverse {
+            flex-direction: row-reverse;
+        }
+        
+        .product-image {
+            flex: 0 0 40%;
+        }
+        
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+        
+        .product-description {
+            flex: 1;
+        }
+        
+        .product-description h3 {
+            color: var(--secondary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .use-cases {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .use-case {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent);
+        }
+        
+        .use-case h4 {
+            color: var(--secondary);
+            margin-top: 0;
+        }
+
+        /* Impressum specific style (to match other sections) */
+        .impressum-content {
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .impressum-content h3 {
+            color: var(--secondary);
+            margin-top: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 0.5rem;
+        }
+
     </style>
 </head>
 <body>
@@ -748,17 +816,20 @@
             <nav>
                 <a href="#" class="logo">
                     <div class="logo-image">
-                        <img src="TE_logo_0_reduced.png" alt="TÜ.EVAL Logo">
+                        <img src="TE_logo_0_reduced.png" alt="MIMIR Logo">
                     </div>
+                    <div class="logo-text">MIMIR</div>
                 </a>
                 <button class="menu-toggle">☰</button>
                 <div class="nav-links">
-                    <a href="#services">Dienstleistungen</a>
-                    <a href="#methods">Methoden</a>
+                    <a href="#products">Products</a>
+                    <a href="#about">Why AI Evaluation?</a>
+                    <a href="#methods">Methods</a>
+                    <a href="#roadmap">Roadmap</a>
                     <a href="#faq">FAQ</a>
-                    <a href="#team">Team</a>
-                    <a href="#calculator">Kostenrechner</a>
-                    <a href="#contact">Kontakt</a>
+                    <a href="#glossary">Glossary</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#impressum">Impressum</a>
                 </div>
             </nav>
         </div>
@@ -772,485 +843,552 @@
                     <img src="TE_logo_0.png" alt="Company Logo" style="width:85%; height:0%; object-fit: contain;">
                 </div>
                 <div class="hero-text">
-                    <h1>KI-Evaluierung & Compliance nach höchsten Standards</h1>
-                    <p>TÜ.EVAL bietet umfassende Evaluierungs- und Zertifizierungsdienstleistungen für KI-Systeme – maßgeschneidert für den deutschen und europäischen Markt.
-                        Unsere Lösungen kombinieren regulatorisches Know-How mit voller technischer Überprüfung und Beratung, um Ihnen einen entscheidenden Wettbewerbsvorteil zu verschaffen.
-                    </p>
+                    <h1>Intelligent AI Routing for the Agent Economy</h1>
+                    <p>MIMIR provides cutting-edge solutions for the emerging AI agent ecosystem. Our intelligent routing technology automatically selects the best AI agent for any task and predicts its strengths and weaknesses in all relevant dimensions like performance, costs and risk aspects. </p>
                     <p>                        
-                        <span class="highlight">Wir bieten als Einzige die sich ergänzende Erkennung und Erfüllung des kompletten für Ihren KI-Einsatz relevanten Risikomanagements in einem Service.</span>
+                        <span class="highlight">Evidence based routing is enabled by our composition of state-of-the-art AI benchmarking tools, completed with handcrafted evals for your specific needs. Thus, MIMIR ensures that your AI systems are compliant, reliable, and effective. We're pioneering the future of AI orchestration with our three core products: MIMIR.PREDICTOR, MIMIR.DATASETS, and MIMIR.EVALUATIONS.</span>
                     </p>
-                    <a href="#contact" class="btn">Kontakt aufnehmen</a>
-                    <a href="#services" class="btn btn-outline">Unsere Leistungen</a>
+                    <a href="#contact" class="btn">Contact Us</a>
+                    <a href="#products" class="btn btn-outline">Our Products</a>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Über uns: Warum KI-Evaluierung? -->
+    <!-- Products: Our three core offerings -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2>Our Products</h2>
+            
+            <div class="product-highlight">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/400x300/4A148C/FFFFFF?text=MIMIR.PREDICTOR" alt="MIMIR.PREDICTOR">
+                </div>
+                <div class="product-description">
+                    <h3>MIMIR.PREDICTOR</h3>
+                    <p>Our intelligent AI router automatically selects the optimal AI model for any task, considering performance, compliance, and cost factors. In the emerging AI agent economy, choosing the right AI for each request is critical for success.</p>
+                    
+                    <h4>Key Benefits:</h4>
+                    <ul>
+                        <li>Automatically route requests to the most suitable AI model</li>
+                        <li>Consider multiple factors: correctness, compliance, costs, and more</li>
+                        <li>Handle dynamic environments with constantly evolving AI models</li>
+                        <li>Quantitative quality predictions for each AI across different aspects</li>
+                    </ul>
+                    
+                    <div class="use-cases">
+                        <div class="use-case">
+                            <h4>Multi-Agent Workflows</h4>
+                            <p>Orchestrate complex tasks across specialized AI agents</p>
+                        </div>
+                        <div class="use-case">
+                            <h4>Cost Optimization</h4>
+                            <p>Balance performance requirements with budget constraints</p>
+                        </div>
+                        <div class="use-case">
+                            <h4>Compliance Assurance</h4>
+                            <p>Ensure regulatory requirements are met for each task</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-highlight reverse">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/400x300/4A148C/FFFFFF?text=MIMIR.DATASETS" alt="MIMIR.DATASETS">
+                </div>
+                <div class="product-description">
+                    <h3>MIMIR.DATASETS</h3>
+                    <p>Curated datasets specifically designed for evaluating AI agents against European compliance requirements and performance benchmarks. Our datasets incorporate verified information from regulations like the EU AI Act.</p>
+                    
+                    <h4>Key Benefits:</h4>
+                    <ul>
+                        <li>Comprehensive coverage of EU AI Act requirements</li>
+                        <li>Structured evaluation resources for performance and compliance</li>
+                        <li>Identification of gaps in current evaluation landscape</li>
+                        <li>Dynamic database ensuring availability and traceability</li>
+                    </ul>
+                    
+                    <div class="use-cases">
+                        <div class="use-case">
+                            <h4>Compliance Testing</h4>
+                            <p>Verify your AI systems meet regulatory requirements</p>
+                        </div>
+                        <div class="use-case">
+                            <h4>Risk Assessment</h4>
+                            <p>Identify potential legal and operational risks</p>
+                        </div>
+                        <div class="use-case">
+                            <h4>Benchmarking</h4>
+                            <p>Compare your AI against industry standards</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-highlight">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/400x300/4A148C/FFFFFF?text=MIMIR.EVALUATIONS" alt="MIMIR.EVALUATIONS">
+                </div>
+                <div class="product-description">
+                    <h3>MIMIR.EVALUATIONS</h3>
+                    <p>Comprehensive evaluation services to ensure your AI systems are lawful, reliable, and won't cause embarrassment. We use our extensive datasets and evaluation platform to provide actionable insights.</p>
+                    
+                    <h4>Key Benefits:</h4>
+                    <ul>
+                        <li>Ensure compliance with EU regulations and standards</li>
+                        <li>Identify potential failure modes before deployment</li>
+                        <li>Comprehensive testing across performance and compliance dimensions</li>
+                        <li>Actionable recommendations for improvement</li>
+                    </ul>
+                    
+                    <div class="use-cases">
+                        <div class="use-case">
+                            <h4>Pre-Deployment Checks</h4>
+                            <p>Verify your chatbot or AI agent before public release</p>
+                        </div>
+                        <div class="use-case">
+                            <h4>Regular Audits</h4>
+                            <p>Continuous monitoring of AI system performance and compliance</p>
+                        </div>
+                        <div class="use-case">
+                            <h4>Incident Analysis</h4>
+                            <p>Investigate and understand AI failures or unexpected behaviors</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Why AI Evaluation? -->
     <section id="about">
         <div class="container">
-            <h2>Warum KI-Evaluierung?</h2>
+            <h2>Why AI Evaluation?</h2>
             <div class="features">
-                <!-- Mehrere Feature-Karten, die unterschiedliche Vorteile der Evaluierung aufzeigen -->
                 <div class="feature-card">
                     <div class="icon">📊</div>
-                    <h3>Produktive Leistungsfähigkeit</h3>
-                    <p>Systematische Messung von Genauigkeit, Geschwindigkeit und Ressourceneffizienz Ihrer KI-Systeme mit maßgeschneiderten Benchmarks.</p>
+                    <h3>Productive Performance</h3>
+                    <p>Systematic measurement of accuracy, speed and resource efficiency of your AI systems with customized benchmarks.</p>
                     <div class="additional-content">
-                        <h4>Detaillierte Analyse</h4>
-                        <p>Wir bewerten nicht nur die grundlegende Leistung, sondern analysieren auch die Skalierbarkeit und Effizienz unter verschiedenen Lastbedingungen.</p>
-                        <h4>Benchmark-Vergleiche</h4>
-                        <p>Vergleiche mit branchenüblichen Standards und Wettbewerbsprodukten geben Ihnen klare Einblicke in Ihre Marktposition.</p>
-                        <h4>Echtzeit-Monitoring</h4>
-                        <p>Kontinuierliche Leistungsüberwachung mit Alarmen bei Performance-Einbrüchen oder Anomalien.</p>
+                        <h4>Detailed Analysis</h4>
+                        <p>We evaluate not only basic performance but also analyze scalability and efficiency under different load conditions.</p>
+                        <h4>Benchmark Comparisons</h4>
+                        <p>Comparisons with industry standards and competitive products give you clear insights into your market position.</p>
+                        <h4>Real-time Monitoring</h4>
+                        <p>Continuous performance monitoring with alerts for performance drops or anomalies.</p>
                     </div>
                 </div>
                 <div class="feature-card">
                     <div class="icon">⚖️</div>
-                    <h3>Regulatorische Compliance</h3>
-                    <p>Prüfung auf Konformität mit EU AI Act, DSGVO und anderen relevanten Normen zur Minimierung rechtlicher Risiken.</p>
+                    <h3>Regulatory Compliance</h3>
+                    <p>Checking for conformity with EU AI Act, GDPR and other relevant standards to minimize legal risks.</p>
                     <div class="additional-content">
-                        <h4>EU AI Act Konformität</h4>
-                        <p>Detaillierte Bewertung der Risikoklasse Ihres Systems und Erfüllung aller Anforderungen für Hochrisiko-KI-Systeme.</p>
-                        <h4>DSGVO-Check</h4>
-                        <p>Prüfung der Datenverarbeitungspraktiken auf Einhaltung der europäischen Datenschutzgrundverordnung.</p>
-                        <h4>Internationale Standards</h4>
-                        <p>Berücksichtigung länder- und branchenspezifischer Vorschriften für globale Markteinführungen.</p>
+                        <h4>EU AI Act Conformity</h4>
+                        <p>Detailed assessment of your system's risk class and fulfillment of all requirements for high-risk AI systems.</p>
+                        <h4>GDPR Check</h4>
+                        <p>Review of data processing practices for compliance with the European General Data Protection Regulation.</p>
+                        <h4>International Standards</h4>
+                        <p>Consideration of country- and industry-specific regulations for global market launches.</p>
                     </div>
                 </div>
                 <div class="feature-card">
                     <div class="icon">🛡️</div>
-                    <h3>Sicherheit & Robustheit</h3>
-                    <p>Erweiterte Testung auf Anfälligkeit für Out-of-Distribution Inputs, Jailbreaks und adversarial Attacks.</p>
+                    <h3>Security & Robustness</h3>
+                    <p>Advanced testing for vulnerability to out-of-distribution inputs, jailbreaks and adversarial attacks.</p>
                     <div class="additional-content">
                         <h4>Red Teaming</h4>
-                        <p>Simulation realer Angriffsszenarien durch unser Expertenteam zur Identifizierung von Schwachstellen.</p>
-                        <h4>Stress-Tests</h4>
-                        <p>Systematische Überprüfung der Stabilität unter extremen Bedingungen und unerwarteten Eingaben.</p>
-                        <h4>OOD-Resilienz</h4>
-                        <p>Spezialtests für Out-of-Distribution Inputs und Edge Cases, die in realen Anwendungen auftreten können.</p>
+                        <p>Simulation of real attack scenarios by our expert team to identify vulnerabilities.</p>
+                        <h4>Stress Tests</h4>
+                        <p>Systematic review of stability under extreme conditions and unexpected inputs.</p>
+                        <h4>OOD Resilience</h4>
+                        <p>Special tests for out-of-distribution inputs and edge cases that may occur in real applications.</p>
                     </div>
                 </div>
                 <div class="feature-card">
                     <div class="icon">🔄</div>
-                    <h3>Neues Verhalten durch Fine-Tuning und RAG</h3>
-                    <p>Evaluation der Wirksamkeit von Anpassungen durch Fine-Tuning und Retrieval-Augmented Generation.</p>
+                    <h3>New Behavior through Fine-Tuning and RAG</h3>
+                    <p>Evaluation of the effectiveness of adaptations through fine-tuning and retrieval-augmented generation.</p>
                     <div class="additional-content">
-                        <h4>Fine-Tuning Analyse</h4>
-                        <p>Messung der Auswirkungen von domänenspezifischem Fine-Tuning auf Modellleistung und -verhalten.</p>
-                        <h4>RAG-Evaluierung</h4>
-                        <p>Bewertung der Genauigkeit und Effizienz von Retrieval-Augmented Generation Systemen.</p>
-                        <h4>Verhaltenskonsistenz</h4>
-                        <p>Überprüfung, ob das gewünschte neue Verhalten konsistent in verschiedenen Szenarien auftritt.</p>
+                        <h4>Fine-Tuning Analysis</h4>
+                        <p>Measurement of the impact of domain-specific fine-tuning on model performance and behavior.</p>
+                        <h4>RAG Evaluation</h4>
+                        <p>Assessment of the accuracy and efficiency of retrieval-augmented generation systems.</p>
+                        <h4>Behavioral Consistency</h4>
+                        <p>Verification that the desired new behavior occurs consistently in different scenarios.</p>
                     </div>
                 </div>
                 <div class="feature-card">
                     <div class="icon">📈</div>
-                    <h3>Wirtschaftlicher Nutzen</h3>
-                    <p>Kosteneinsparungen durch optimale Modellwahl und Vermeidung teurer Compliance-Verstöße.</p>
+                    <h3>Economic Benefits</h3>
+                    <p>Cost savings through optimal model selection and avoidance of expensive compliance violations.</p>
                     <div class="additional-content">
-                        <h4>ROI-Analyse</h4>
-                        <p>Berechnung des Return-on-Investment für verschiedene KI-Implementierungen in Ihrem Unternehmen.</p>
-                        <h4>Risikomanagement</h4>
-                        <p>Identifikation potenzieller finanzieller Risiken durch regulatorische Nichtkonformität.</p>
-                        <h4>Kostenoptimierung</h4>
-                        <p>Empfehlungen zur Effizienzsteigerung und Kostensenkung bei KI-Implementierungen.</p>
+                        <h4>ROI Analysis</h4>
+                        <p>Calculation of return on investment for various AI implementations in your company.</p>
+                        <h4>Risk Management</h4>
+                        <p>Identification of potential financial risks from regulatory non-compliance.</p>
+                        <h4>Cost Optimization</h4>
+                        <p>Recommendations for efficiency improvements and cost reductions in AI implementations.</p>
                     </div>
                 </div>
                 <div class="feature-card">
                     <div class="icon">🎓</div>
-                    <h3>Schulungen</h3>
-                    <p>Maßgeschneiderte Schulungsprogramme zur effektiven KI-Nutzung und Compliance.</p>
+                    <h3>Training</h3>
+                    <p>Customized training programs for effective AI use and compliance.</p>
                     <div class="additional-content">
-                        <h4>Technische Schulungen</h4>
-                        <p>Praktische Workshops für Entwickler und Data Scientists zu robusten KI-Implementierungen.</p>
-                        <h4>Compliance-Schulungen</h4>
-                        <p>Schulungen für Führungskräfte und Compliance-Beauftragte zu regulatorischen Anforderungen.</p>
-                        <h4>Use-Case Training</h4>
-                        <p>Branchenspezifische Schulungen zur optimalen Nutzung von KI in Ihrem Geschäftskontext.</p>
+                        <h4>Technical Training</h4>
+                        <p>Practical workshops for developers and data scientists on robust AI implementations.</p>
+                        <h4>Compliance Training</h4>
+                        <p>Training for managers and compliance officers on regulatory requirements.</p>
+                        <h4>Use Case Training</h4>
+                        <p>Industry-specific training on optimal use of AI in your business context.</p>
                     </div>
                 </div>
                 <div class="feature-card">
                     <div class="icon">🔍</div>
-                    <h3>Individualisierter Auswertungsfokus</h3>
-                    <p>Zusätzliche Kontextvariationen und besonderes Augenmerk im Bericht bei vollumfänglicher Evaluierung.</p>
+                    <h3>Customized Evaluation Focus</h3>
+                    <p>Additional context variations and special attention in the report with comprehensive evaluation.</p>
                     <div class="additional-content">
-                        <h4>Priorisierte Analyse</h4>
-                        <p>Vertiefte Bewertung spezifischer Aspekte, die für Ihr Unternehmen besonders relevant sind.</p>
-                        <h4>Kontextuelle Variationen</h4>
-                        <p>Erweiterte Testszenarien, die Ihre spezifischen Anwendungsfälle genau abbilden.</p>
-                        <h4>Fokussierte Berichte</h4>
-                        <p>Zusammenfassungen und Empfehlungen, die auf Ihre strategischen Prioritäten zugeschnitten sind.</p>
+                        <h4>Prioritized Analysis</h4>
+                        <p>In-depth assessment of specific aspects that are particularly relevant to your company.</p>
+                        <h4>Contextual Variations</h4>
+                        <p>Extended test scenarios that accurately reflect your specific use cases.</p>
+                        <h4>Focused Reports</h4>
+                        <p>Summaries and recommendations tailored to your strategic priorities.</p>
                     </div>
                 </div>
                 <div class="feature-card">
                     <div class="icon">🏢</div>
-                    <h3>Individueller Kontext</h3>
-                    <p>Spezifische Evaluierung basierend auf der tatsächlichen Nutzung in Ihrem Unternehmenskontext.</p>
+                    <h3>Individual Context</h3>
+                    <p>Specific evaluation based on actual usage in your business context.</p>
                     <div class="additional-content">
-                        <h4>Unternehmensspezifische Tests</h4>
-                        <p>Evaluation mit Ihren tatsächlichen Daten und Workflows für maximal relevante Ergebnisse.</p>
-                        <h4>Branchenbenchmarks</h4>
-                        <p>Vergleiche mit spezifischen Benchmarks für Ihre Branche und Unternehmensgröße.</p>
-                        <h4>Implementierungsanalyse</h4>
-                        <p>Bewertung der KI-Integration in Ihre bestehenden Systeme und Prozesse.</p>
+                        <h4>Company-Specific Tests</h4>
+                        <p>Evaluation with your actual data and workflows for maximally relevant results.</p>
+                        <h4>Industry Benchmarks</h4>
+                        <p>Comparisons with specific benchmarks for your industry and company size.</p>
+                        <h4>Implementation Analysis</h4>
+                        <p>Assessment of AI integration into your existing systems and processes.</p>
                     </div>
                 </div>
                 <div class="feature-card">
                     <div class="icon">⚖️</div>
-                    <h3>Privatrechtliche Aspekte</h3>
-                    <p>Prüfung von Copyright, Haftung und arbeitsrechtlichen Implikationen Ihrer KI-Nutzung.</p>
+                    <h3>Private Law Aspects</h3>
+                    <p>Review of copyright, liability and labor law implications of your AI use.</p>
                     <div class="additional-content">
-                        <h4>Urheberrechtliche Prüfung</h4>
-                        <p>Analyse potenzieller Copyright-Verletzungen durch Trainingsdaten und Outputs.</p>
-                        <h4>Haftungsrisiken</h4>
-                        <p>Identifikation und Bewertung zivilrechtlicher Haftungsrisiken bei KI-Einsatz.</p>
-                        <h4>Arbeitsrechtliche Folgen</h4>
-                        <p>Beratung zu Mitbestimmung, Arbeitsplatzgestaltung und Qualifizierungserfordernissen.</p>
+                        <h4>Copyright Review</h4>
+                        <p>Analysis of potential copyright infringements through training data and outputs.</p>
+                        <h4>Liability Risks</h4>
+                        <p>Identification and assessment of civil liability risks in AI use.</p>
+                        <h4>Labor Law Consequences</h4>
+                        <p>Consulting on co-determination, workplace design and qualification requirements.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Dienstleistungen: Angebote (ohne Preisangaben) -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2>Unsere Leistungspakete</h2>
-            <div class="service-tiers">
-                <div class="service-tier popular">
-                    <h3>TÜ.EVAL Initial Check-Up</h3>
-                    <!-- Preisangabe entfernt -->
-                    <p>Grundlegende Bewertung der technischen Leistungsfähigkeit und Compliance-Aspekte auf 26 etablierten Benchmarks.</p>
-                    <ul>
-                        <li>MMLU, GPQA und SWE-Bench Analysen</li>
-                        <li>Expertenbericht mit strategischen Empfehlungen</li>
-                        <li>Ergebnisse innerhalb von 48 Stunden</li>
-                        <li>Persönliche Ergebnisbesprechung</li>
-                    </ul>
-                    <a href="#contact" class="btn">Anfragen</a>
-                </div>
-                <div class="service-tier">
-                    <h3>TÜ.EVAL DE-KI</h3>
-                    <!-- Preisangabe entfernt -->
-                    <p>Umfassende Evaluierung für den deutschen Markt mit Fokus auf sprachliche und regulatorische Anforderungen.</p>
-                    <ul>
-                        <li>Erweiterte Leistungs- und Effizienzanalyse</li>
-                        <li>Fairness- und Bias-Tests</li>
-                        <li>Transparenz- und Erklärbarkeitsanalysen</li>
-                        <li>Kundenspezifische Kontextbewertung</li>
-                        <li>Technologische & ethische Einschätzung</li>
-                    </ul>
-                    <a href="#contact" class="btn">Anfragen</a>
-                </div>
-                <div class="service-tier">
-                    <h3>TÜ.EVAL Artisanal</h3>
-                    <!-- Preisangabe entfernt -->
-                    <p>Premium-Evaluierung vollständig individuell auf Ihre Bedürfnisse zugeschnitten.</p>
-                    <ul>
-                        <li>Maßgeschneiderte Testumgebungen</li>
-                        <li>Tiefgehende Robustheitsanalysen (Red Teaming)</li>
-                        <li>Neu erstellte Testdatensätze</li>
-                        <li>Umfassende rechtliche Evaluierung</li>
-                        <li>Konformität mit EU AI Act, DSGVO & mehr</li>
-                        <li>Vorbereitung für Zertifizierung</li>
-                    </ul>
-                    <a href="#contact" class="btn">Anfragen</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Team: Vorstellung des Gründungsteams -->
-    <section id="team" class="team">
-        <div class="container">
-            <h2>Gründungsteam</h2>
-            <div class="team-members">
-                <div class="feature-card">
-                    <img src="CVAIincWIN_julian_circle.jpeg" alt="Julian Bitterwolf" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; border: 3px solid var(--accent);">
-                    <h3>Dr. Julian Bitterwolf</h3>
-                    <div class="title">Mitgründer & Benchmarking-Experte</div>
-                    <p>Promovierter Informatiker mit Fokus auf Robustheit von KI-Modellen und Out-of-Distribution Detection.</p>
-                    <div class="additional-content">
-                        <h4>Ausgewählte Publikationen:</h4>
-                        <ul class="publication-list">
-                            <li><a href="https://github.com/j-cb/NINCO" target="_blank">"In or Out? Fixing ImageNet OOD Detection [The NINCO dataset]" (ICML 2023)</a></li>
-                            <li><a href="https://github.com/j-cb/GOOD" target="_blank">"Certifiably Adversarially Robust Detection of Out-of-Distribution Data" (NeurIPS 2020)</a></li>
-                            <li><a href="https://github.com/max-andr/relu_networks_overconfident" target="_blank">"Why relu networks yield high-confidence predictions far away from the training data and how to mitigate the problem (NeurIPS 2019)</a></li>
-                        </ul>
-                        <h4>Branchenerfahrung:</h4>
-                        <ul>
-                            <li>ICML Workshop Organizer, "Shift happens: Crowdsourcing metrics and test datasets
-                                beyond ImageNet"</li>
-                            <li>Internship Amazon, AGI Team</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="feature-card">
-                    <img src="valentyn_circle.png" alt="Valentyn Boreiko" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; border: 3px solid var(--accent);">
-                    <h3>Valentyn Boreiko</h3>
-                    <div class="title">Mitgründer & KI-Anwendungsexperte</div>
-                    <p>Experte für erklärbare KI und adversariale Angriffe. Mitgründer von Studyly GmbH.</p>
-                    <div class="additional-content">
-                        <h4>Ausgewählte Publikationen:</h4>
-                        <ul class="publication-list">
-                            <li><a href="https://github.com/valentyn1boreiko/llm-threat-model" target="_blank">"A Realistic Threat Model for LLM Jailbreaks" (NeurIPS 2024)</a></li>
-                            <li><a href="https://openaccess.thecvf.com/content/ICCV2023W/BRAVO/html/Boreiko_Identifying_Systematic_Errors_in_Object_Detectors_with_the_SCROD_Pipeline_ICCVW_2023_paper.html" target="_blank">"Identifying Systematic Errors in Object Detectors" (ICCV 2023)</a></li>
-                            <li><a href="https://github.com/valentyn1boreiko/dvces" target="_blank">"Diffusion Visual Counterfactual Explanations" (NeurIPS 2022)</a></li>
-                        </ul>
-                        <h4>Branchenerfahrung:</h4>
-                        <ul>
-                            <li>Internship Amazon AWS</li>
-                            <li>Internship Bosch AI Research</li>
-                            <li>OpenAI Red-Teaming Contractor</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="feature-card">
-                    <img src="maximilian_circle.jpg" alt="Maximilian Bitterwolf" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; border: 3px solid var(--accent);">
-                    <h3>Maximilian Bitterwolf</h3>
-                    <div class="title">Mitgründer & Compliance-Experte</div>
-                    <p>Wirtschaftsrechtsexperte mit Spezialisierung auf Technologieregulierung und Compliance im KI-Bereich.</p>
-                    <div class="additional-content">
-                        <h4>Schwerpunkte:</h4>
-                        <ul>
-                            <li>Risikomanagement</li>
-                            <li>EU AI Act Implementierung</li>
-                            <li>Produkthaftungsrichtlinie (EU) 2024/2853</li>
-                            <li>DSGVO-Konformität</li>
-                        </ul>
-                        <!--
-                        <h4>Branchenerfahrung:</h4>
-                        <ul>
-                            <li>Burda Media Compliance</li>
-                            <li>Masterarbeit:</li>
-                        </ul>
-                        -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Roadmap: Darstellung des Entwicklungsplans -->
-    <section id="roadmap" class="roadmap">
-        <div class="container">
-            <h2>Unser Entwicklungsplan</h2>
-            <div class="roadmap-container">
-                <div class="roadmap-item">
-                    <div class="roadmap-date">Monate 1-4</div>
-                    <h3 class="roadmap-title">Grundlagenphase</h3>
-                    <p>Entwicklung der Kerninfrastruktur und erster Pilotprojekte. Aufbau eines robusten Qualitätsmanagements. Integration von 26 etablierten Benchmarks in unser Framework.</p>
-                    <p>Fokus auf automatisierte Evaluierungsprozesse und erste Kundenprojekte mit reduzierten Preismodellen.</p>
-                </div>
-                <div class="roadmap-item">
-                    <div class="roadmap-date">Monate 5-8</div>
-                    <h3 class="roadmap-title">Expansionsphase</h3>
-                    <p>Automatisierung der Prozesse und Erweiterung des Testportfolios. Intensivierung von Marketing- und Vertriebsaktivitäten.</p>
-                    <p>Entwicklung von Fairness- und Bias-Tests, Transparenzanalysen und kundenspezifischen Kontextbewertungen für das DE-KI Paket.</p>
-                </div>
-                <div class="roadmap-item">
-                    <div class="roadmap-date">Monate 9-12</div>
-                    <h3 class="roadmap-title">Markteinführungsphase</h3>
-                    <p>Betreuung erster regulärer Kundenprojekte. Etablierung eines Partnernetzwerks mit Rechtsanwaltskanzleien und Prüfstellen.</p>
-                    <p>Konzeptionelle Vorbereitung unseres Qualitätssiegels und Entwicklung des Artisanal-Pakets mit tiefgehenden Robustheitsanalysen.</p>
-                </div>
-                <div class="roadmap-item">
-                    <div class="roadmap-date">Jahr 2</div>
-                    <h3 class="roadmap-title">Zertifizierung & Skalierung</h3>
-                    <p>Einführung des TÜ.EVAL-Siegels als anerkanntes Qualitätszeichen. Ausbau der Schulungsangebote zu KI-Compliance.</p>
-                    <p>Skalierung der technischen Infrastruktur und Erweiterung des Teams. Ziel: 10 Artisanal-Kunden und 10 Schulungsprojekte.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Methoden: Darstellung der Evaluierungsansätze und Benchmarks -->
+    <!-- Methods: Our evaluation approaches -->
     <section id="methods" class="methods">
         <div class="container">
-            <h2>Unsere Methoden & Benchmarks</h2>
-            <p>Unser Evaluierungsframework kombiniert 26 etablierte Benchmarks mit kundenspezifischen Tests für präzise Ergebnisse:</p>
+            <h2>Our Evaluation Methods</h2>
+            <p>Our comprehensive framework combines established benchmarks with custom evaluations tailored to your specific needs:</p>
             
             <div class="method-grid">
                 <div class="method-card">
-                    <h3>Technische Leistung</h3>
+                    <h3>Technical Performance</h3>
                     <ul class="benchmark-list">
                         <li>MMLU (Massive Multitask Language Understanding)</li>
                         <li>GPQA (General Purpose Question Answering)</li>
                         <li>SWE-Bench (Software Engineering)</li>
-                        <li>AIME 2024 (Mathematik)</li>
-                        <li>Inferenzlatenz & Energieverbrauch</li>
+                        <li>AIME 2024 (Mathematics)</li>
+                        <li>Inference Latency & Energy Consumption</li>
                     </ul>
-                    <p>Dynamische, anwendungsorientierte Auswahl der relevantesten Metriken für Ihren Use Case.</p>
+                    <p>Dynamic, application-oriented selection of the most relevant metrics for your use case.</p>
                 </div>
                 <div class="method-card">
-                    <h3>Sicherheit & Robustheit</h3>
+                    <h3>Security & Robustness</h3>
                     <ul class="benchmark-list">
-                        <li>Jailbreak-Resistenz (single/multi-turn)</li>
-                        <li>Adversarial Attacks (Uesato et al. 2022)</li>
-                        <li>Red-Teaming-Ansätze (Wang et al. 2023)</li>
-                        <li>OOD-Resilienz (NINCO-Datensatz)</li>
-                        <li>Model Extraction Attacks (Snell et al. 2024)</li>
+                        <li>Jailbreak Resistance (single/multi-turn)</li>
+                        <li>Adversarial Attacks</li>
+                        <li>Red-Teaming Approaches</li>
+                        <li>OOD-Resilience (NINCO dataset)</li>
+                        <li>Model Extraction Attacks</li>
                     </ul>
-                    <p>Stress-Tests unter extremen Bedingungen und unerwarteten Eingaben.</p>
+                    <p>Stress tests under extreme conditions and unexpected inputs.</p>
                 </div>
                 <div class="method-card">
-                    <h3>Compliance & Recht</h3>
+                    <h3>Compliance & Legal</h3>
                     <ul class="benchmark-list">
-                        <li>EU AI Act Konformität</li>
-                        <li>DSGVO-Check (Datenverarbeitung)</li>
-                        <li>Urheberrechtsprüfung (SimpleQA)</li>
-                        <li>DIN SPEC 92005 (Unsicherheiten)</li>
-                        <li>AlpacaEval 2.0 (Ethische Ausrichtung)</li>
+                        <li>EU AI Act Conformity</li>
+                        <li>GDPR Compliance Check</li>
+                        <li>Copyright Verification</li>
+                        <li>DIN SPEC 92005 (Uncertainties)</li>
+                        <li>AlpacaEval 2.0 (Ethical Alignment)</li>
                     </ul>
-                    <p>Vorbereitung geprüfter Siegel zur Compliance-Zertifizierung.</p>
+                    <p>Preparation for certified compliance seals and regulatory approval.</p>
                 </div>
             </div>
             
             <div style="text-align: center; margin-top: 2rem;">
-                <a href="#contact" class="btn">Mehr über unsere Methoden erfahren</a>
+                <a href="#contact" class="btn">Learn More About Our Methods</a>
             </div>
         </div>
     </section>
+    
+    <!-- Roadmap: Updated to 5 months and beyond
+    <section id="roadmap" class="roadmap">
+        <div class="container">
+            <h2>Our Development Plan</h2>
+            <div class="roadmap-container">
+                <div class="roadmap-item">
+                    <div class="roadmap-date">Month 1</div>
+                    <h3 class="roadmap-title">Foundation Phase</h3>
+                    <p>Development of core infrastructure and first pilot projects. Setup of robust quality management. Integration of established benchmarks into our framework.</p>
+                    <p>Focus on automated evaluation processes and first customer projects with reduced pricing models.</p>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-date">Month 2-3</div>
+                    <h3 class="roadmap-title">Implementation Phase</h3>
+                    <p>Completion of MIMIR.PREDICTOR prototype with basic functionality for single and multiple agent candidates. Development of evaluation pipeline for reproducible results.</p>
+                    <p>Systematic collection and mapping of existing evaluation resources for performance and compliance aspects.</p>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-date">Month 4</div>
+                    <h3 class="roadmap-title">Optimization Phase</h3>
+                    <p>Optimization of predictor for applications through training adjustments, expansion of prediction categories, efficiency improvements, uncertainty quantification.</p>
+                    <p>Identification of gaps in evaluation landscape and development of new evaluation resources to address them.</p>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-date">Month 5</div>
+                    <h3 class="roadmap-title">Integration Phase</h3>
+                    <p>Setup of structured comparison and selection procedures for evaluation resources. Implementation of dynamic evaluation platform.</p>
+                    <p>Development of customer-oriented reporting for evaluation, predictor and routing results.</p>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-date">Month 6-12</div>
+                    <h3 class="roadmap-title">Market Launch & Scaling</h3>
+                    <p>Support for first regular customer projects. Establishment of partner network with law firms and testing facilities.</p>
+                    <p>Conceptual preparation of our quality seal and development of advanced packages with in-depth robustness analyses.</p>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-date">Year 2</div>
+                    <h3 class="roadmap-title">Certification & Expansion</h3>
+                    <p>Introduction of the MIMIR seal as a recognized quality mark. Expansion of training offerings for AI compliance.</p>
+                    <p>Scaling of technical infrastructure and team expansion. Target: 10 enterprise customers and 15 training projects.</p>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-date">Year 3+</div>
+                    <h3 class="roadmap-title">Market Leadership</h3>
+                    <p>Establishment as European leader in AI routing and evaluation. Development of industry-specific solutions.</p>
+                    <p>Expansion into international markets with localized compliance solutions. Introduction of AI governance platform.</p>
+                </div>
+            </div>
+        </div>
+    </section> -->
 
-    <!-- FAQ: Häufig gestellte Fragen -->
+    <!-- FAQ: Frequently Asked Questions -->
     <section id="faq" class="faq">
         <div class="container faq-container">
-            <h2>Häufige Fragen</h2>
+            <h2>Frequently Asked Questions</h2>
             
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleAnswer(1)">
-                    <span>Für CTOs: Wie reduziert TÜ.EVAL unsere Haftungsrisiken?</span>
+                    <span>For CTOs: How does MIMIR reduce our operational costs?</span>
                     <span>+</span>
                 </div>
                 <div class="faq-answer" id="answer1">
-                    <p>Durch systematische Dokumentation aller Evaluierungsergebnisse schaffen wir eine nachweisbare Due-Diligence-Grundlage. Unsere Tests decken speziell Risiken gemäß EU AI Act ab (bis zu 7% des globalen Umsatzes als Strafe). Beispielsweise identifizieren wir:</p>
+                    <p>Our intelligent routing system automatically selects the most cost-effective AI for each task, balancing performance requirements with operational expenses. By avoiding over-provisioning and selecting optimal models, we've helped companies reduce AI operational costs by 30-60% while maintaining or improving quality.</p>
                     <ul>
-                        <li>Anfälligkeiten für Jailbreaks (siehe Boreiko et al. 2024)</li>
-                        <li>Urheberrechtsverletzungen durch Training Data Leakage</li>
-                        <li>Diskriminierende Verzerrungen (Winogender, C-Eval)</li>
+                        <li>Dynamic model selection based on task complexity</li>
+                        <li>Automatic fallback to cheaper models when appropriate</li>
+                        <li>Load balancing across multiple AI providers</li>
                     </ul>
                 </div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleAnswer(2)">
-                    <span>Für Compliance-Beauftragte: Welche Regularien decken Sie ab?</span>
+                    <span>For Compliance Officers: How do you handle EU AI Act requirements?</span>
                     <span>+</span>
                 </div>
                 <div class="faq-answer" id="answer2">
-                    <p>Unser Framework ist modular aufgebaut und berücksichtigt:</p>
+                    <p>Our evaluation framework is specifically designed with EU regulations in mind:</p>
                     <ul>
-                        <li><strong>EU AI Act</strong>: Vollständige Risikoklassifizierung und Anforderungserfüllung für Hochrisiko-Systeme</li>
-                        <li><strong>DSGVO</strong>: Datenverarbeitung, Recht auf Erklärung (Art. 22)</li>
-                        <li><strong>Branchenspezifisch</strong>: AGG (HR), ProdSG (Produktsicherheit), DIN SPECs</li>
-                        <li><strong>International</strong>: NIST AI RMF, ISO/IEC 42001</li>
+                        <li><strong>Risk Classification</strong>: Automatic categorization of AI systems according to EU AI Act risk levels</li>
+                        <li><strong>Documentation</strong>: Generation of necessary documentation for high-risk AI systems</li>
+                        <li><strong>Continuous Monitoring</strong>: Ongoing compliance checks as regulations evolve</li>
+                        <li><strong>Transparency</strong>: Detailed explanations of AI decisions as required by law</li>
                     </ul>
-                    <p>Wir aktualisieren unsere Tests kontinuierlich mit neuen regulatorischen Entwicklungen.</p>
+                    <p>We update our compliance checks continuously with new regulatory developments.</p>
                 </div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleAnswer(3)">
-                    <span>Für Entwickler: Wie integrieren wir Ihre Tests in unseren CI/CD-Prozess?</span>
+                    <span>For Developers: How do we integrate MIMIR into our existing infrastructure?</span>
                     <span>+</span>
                 </div>
                 <div class="faq-answer" id="answer3">
-                    <p>Wir bieten mehrere Integrationsmöglichkeiten:</p>
+                    <p>We offer multiple integration options designed for minimal disruption:</p>
                     <ul>
-                        <li><strong>API-Schnittstelle</strong>: Automatisierte Testausführung bei jedem Deployment</li>
-                        <li><strong>Docker-Container</strong>: Lokale Ausführung unserer Benchmark-Suite</li>
-                        <li><strong>Custom Plugins</strong>: Für GitHub Actions, GitLab CI, Jenkins</li>
+                        <li><strong>API Integration</strong>: Simple REST API that can be added to existing workflows</li>
+                        <li><strong>SDKs</strong>: Language-specific SDKs for Python, JavaScript, Java, and more</li>
+                        <li><strong>Proxy Service</strong>: Route all AI requests through our proxy for automatic optimization</li>
+                        <li><strong>On-Premises Deployment</strong>: For organizations with strict data governance requirements</li>
                     </ul>
-                    <p>Beispiel-Report: <a href="#" style="color: var(--accent);">Muster-Ergebnis (PDF)</a> zeigt detaillierte Metriken und Thresholds.</p>
+                    <p>Most integrations can be completed in under a day with minimal code changes.</p>
                 </div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleAnswer(4)">
-                    <span>Wie unterscheidet sich TÜ.EVAL DE-KI von anderen Evaluierungen?</span>
+                    <span>How does MIMIR handle the rapidly changing AI landscape?</span>
                     <span>+</span>
                 </div>
                 <div class="faq-answer" id="answer4">
-                    <p>Unser DE-KI Paket bietet einzigartige Features für den deutschen Markt:</p>
+                    <p>Our system is designed specifically for dynamic AI environments:</p>
                     <ul>
-                        <li><strong>Lokalisierte Benchmarks</strong>: Übersetzte und kulturell adaptierte Testfälle</li>
-                        <li><strong>Mehrschichtige Compliance</strong>: Technische + rechtliche Bewertung in einem Workflow</li>
-                        <li><strong>Kontextspezifisch</strong>: Tests mit Ihren echten Daten und Workflows</li>
+                        <li><strong>Continuous Evaluation</strong>: We constantly evaluate new AI models as they're released</li>
+                        <li><strong>Adaptive Routing</strong>: Our routing algorithms automatically adjust to new performance data</li>
+                        <li><strong>Model Agnostic</strong>: Works with any AI model, regardless of provider or architecture</li>
+                        <li><strong>Feedback Loops</strong>: Incorporates user feedback to improve future routing decisions</li>
                     </ul>
-                    <p>Vergleich: Standard-Check-Up vs. DE-KI mit 3x mehr Testdimensionen.</p>
+                    <p>You benefit from new AI advancements without needing to rebuild your systems.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Kostenrechner: Berechnung des Compliance-Risikos -->
-    <section id="calculator" class="calculator">
-        <div class="container calculator-container">
-            <h2>Compliance-Risiko Rechner</h2>
-            <p>Berechnen Sie das finanzielle Risiko durch Nicht-Compliance gemäß EU AI Act:</p>
             
-            <div class="form-group">
-                <label for="revenue">Weltweiter Jahresumsatz (€):</label>
-                <input type="number" id="revenue" min="0" value="10000000">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(5)">
+                    <span>For CTOs: How does MIMIR reduce our liability risks?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer" id="answer5">
+                    <p>Through systematic documentation of all evaluation results, we create a verifiable due diligence basis. Our tests specifically cover risks according to EU AI Act (up to 7% of global revenue as penalty). For example, we identify:</p>
+                    <ul>
+                        <li>Vulnerabilities to jailbreaks</li>
+                        <li>Copyright infringements through training data leakage</li>
+                        <li>Discriminatory biases</li>
+                    </ul>
+                </div>
             </div>
             
-            <div class="form-group">
-                <label for="risk-level">Risikostufe Ihres KI-Systems:</label>
-                <select id="risk-level">
-                    <option value="high">Hochrisiko (verbotene Systeme)</option>
-                    <option value="medium">Hochrisiko (andere Verstöße)</option>
-                    <option value="low">Geringes Risiko (falsche Angaben)</option>
-                </select>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(6)">
+                    <span>For Compliance Officers: Which regulations do you cover?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer" id="answer6">
+                    <p>Our framework is modular and considers:</p>
+                    <ul>
+                        <li><strong>EU AI Act</strong>: Complete risk classification and requirement fulfillment for high-risk systems</li>
+                        <li><strong>GDPR</strong>: Data processing, right to explanation (Art. 22)</li>
+                        <li><strong>Industry-specific</strong>: AGG (HR), ProdSG (product safety), DIN SPECs</li>
+                        <li><strong>International</strong>: NIST AI RMF, ISO/IEC 42001</li>
+                    </ul>
+                    <p>We continuously update our tests with new regulatory developments.</p>
+                </div>
             </div>
             
-            <button class="btn" onclick="calculateRisk()">Risiko berechnen</button>
-            
-            <div class="calculator-result" id="result">
-                <p>Klicken Sie auf "Berechnen" um Ihr potentielles Sanktionsrisiko zu sehen.</p>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(7)">
+                    <span>For Developers: How do we integrate your tests into our CI/CD process?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer" id="answer7">
+                    <p>We offer several integration options:</p>
+                    <ul>
+                        <li><strong>API Interface</strong>: Automated test execution with each deployment</li>
+                        <li><strong>Docker Container</strong>: Local execution of our benchmark suite</li>
+                        <li><strong>Custom Plugins</strong>: For GitHub Actions, GitLab CI, Jenkins</li>
+                    </ul>
+                    <p>Example report: <a href="#" style="color: var(--accent);">Sample result (PDF)</a> shows detailed metrics and thresholds.</p>
+                </div>
             </div>
             
-            <p style="font-size: 0.8rem; margin-top: 1rem;">* Basierend auf Art. 99 EU AI Act. Dies ist keine Rechtsberatung.</p>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(8)">
+                    <span>How does MIMIR differ from other evaluation services?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer" id="answer8">
+                    <p>Our approach offers unique advantages:</p>
+                    <ul>
+                        <li><strong>Intelligent Routing</strong>: Not just evaluation, but active optimization of AI selection</li>
+                        <li><strong>Multi-Dimensional Assessment</strong>: Combines technical performance with compliance and cost factors</li>
+                        <li><strong>Context-Specific</strong>: Tests with your real data and workflows</li>
+                        <li><strong>Future-Proof</strong>: Designed for the emerging AI agent economy</li>
+                    </ul>
+                    <p>Comparison: Standard evaluation vs. MIMIR with 3x more test dimensions and active optimization.</p>
+                </div>
+            </div>
         </div>
     </section>
     
     <!-- Glossar: Wichtige Begriffe aus der KI-Evaluierung -->
     <section id="glossary" class="glossary">
         <div class="container glossary-container">
-            <h2>Glossar: KI-Evaluierung & Compliance</h2>
-            <p>Wichtige Begriffe aus unserem Fachgebiet verständlich erklärt:</p>
+            <h2>Glossary: AI Evaluation & Compliance</h2>
+            <p>Important terms from our field explained understandably:</p>
             
             <div class="glossary-grid">
                 <div class="glossary-term">
                     <h3>Fine-Tuning</h3>
-                    <p>Anpassung eines vortrainierten KI-Modells für spezifische Aufgaben. Erfordert separate Evaluierung, da sich das Verhalten grundlegend ändern kann.</p>
+                    <p>Adaptation of a pre-trained AI model for specific tasks. Requires separate evaluation as behavior can fundamentally change.</p>
                 </div>
                 
                 <div class="glossary-term">
                     <h3>OOD (Out-of-Distribution)</h3>
-                    <p>Eingaben außerhalb der Trainingsdaten, die das Verhalten des Modells beeinflussen können. Kritisch für die Sicherheit, da unvorhersehbares Verhalten auftreten kann.</p>
+                    <p>Inputs outside the training data that can influence model behavior. Critical for safety as unpredictable behavior can occur.</p>
                 </div>
                 
                 <div class="glossary-term">
                     <h3>Red Teaming</h3>
-                    <p>Simulation von Angriffsszenarien, wie z.B. Jailbreaks, zur Identifizierung von Sicherheitslücken.</p>
+                    <p>Simulation of attack scenarios, such as jailbreaks, to identify security vulnerabilities.</p>
                 </div>
                 
                 <div class="glossary-term">
                     <h3>EU AI Act</h3>
-                    <p>Europäische Verordnung zur Regulierung von KI-Systemen. Strafen bis zu 7% des globalen Umsatzes möglich.</p>
+                    <p>European regulation for AI systems. Penalties up to 7% of global revenue possible.</p>
                 </div>
                 
                 <div class="glossary-term">
                     <h3>DIN SPEC 92005</h3>
-                    <p>Deutscher Standard für Umgang mit quantifizierbaren und nicht quantifizierbaren Unsicherheiten von KI-Systemen.</p>
+                    <p>German standard for handling quantifiable and non-quantifiable uncertainties of AI systems.</p>
                 </div>
                 
                 <div class="glossary-term">
                     <h3>Jailbreak</h3>
-                    <p>Umgehung von vom Betreibenden vorgesehenen Einschränkungen eines KI-Modells durch zu diesem Zweck optimierte Prompts mit manipulierten Formulierungen.</p>
+                    <p>Circumvention of restrictions intended by the operator of an AI model through prompts optimized for this purpose with manipulated formulations.</p>
+                </div>
+                
+                <div class="glossary-term">
+                    <h3>AI Router</h3>
+                    <p>System that automatically selects the optimal AI model for a given task based on performance, cost, and compliance criteria.</p>
+                </div>
+                
+                <div class="glossary-term">
+                    <h3>RAG (Retrieval-Augmented Generation)</h3>
+                    <p>AI approach that combines information retrieval with text generation to produce more accurate and context-aware responses.</p>
+                </div>
+                
+                <div class="glossary-term">
+                    <h3>Adversarial Attacks</h3>
+                    <p>Specially crafted inputs designed to cause AI models to make mistakes or produce unexpected outputs.</p>
+                </div>
+                
+                <div class="glossary-term">
+                    <h3>Multi-Agent System</h3>
+                    <p>Network of multiple AI agents that work together to solve complex problems beyond the capability of individual agents.</p>
+                </div>
+                
+                <div class="glossary-term">
+                    <h3>Benchmarking</h3>
+                    <p>Systematic comparison of AI system performance against standardized tests and metrics.</p>
+                </div>
+                
+                <div class="glossary-term">
+                    <h3>Compliance Risk</h3>
+                    <p>Potential for legal penalties, financial forfeiture, or material loss an organization faces when it fails to act in accordance with industry laws and regulations.</p>
                 </div>
             </div>
         </div>
@@ -1259,49 +1397,90 @@
     <!-- Kontakt-Sektion: Neuer Bereich, in dem der Nutzer gebeten wird, eine E-Mail an die angegebene Adresse zu schreiben -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2>Kontaktieren Sie uns</h2>
+            <h2>Contact Us</h2>
             <div class="contact-message">
-                <p>Bitte schreiben Sie uns an <a href="mailto:tuebingen.eval@gmail.com" style="color: var(--accent);">tuebingen.eval@gmail.com</a> für weitere Informationen oder eine individuelle Anfrage.</p>
+                <p>Please email us at <a href="mailto:contact@mimir.fit" style="color: var(--accent);">contact@mimir.fit</a> for more information or to request a custom consultation.</p>
+                <p>We'll help you determine which of our solutions best fits your needs and provide a detailed proposal.</p>
             </div>
         </div>
     </section>
-    
+    <section id="impressum" class="contact">
+        <div class="container">
+            <h2>Legal Notice (Impressum)</h2>
+            <div class="impressum-content">
+                <h3>Information pursuant to § 5 TMG (German Telemedia Act)</h3>
+                <p>
+                    MIMIR GmbH in Gründung<br>
+                    Eichenweg 4<br>
+                    72076 Tübingen<br>
+                    Germany
+                </p>
+
+                <h3>Represented by:</h3>
+                <p>
+                    Dr. Julian Bitterwolf (Managing Director)<br>
+                    Maximilian Bitterwolf (Managing Director)
+                </p>
+
+                <h3>Contact</h3>
+                <p>
+                    E-mail: <a href="mailto:contact@mimir.fit" style="color: var(--accent);">contact@mimir.fit</a><br>
+                </p>
+                
+                <h3>Commercial Register Entry</h3>
+                <p>
+                    Registered in the Commercial Register.<br>
+                    Register Court: Amtsgericht Stuttgart<br>
+                    Register Number: To be announced upon registration.
+                </p>
+
+                <h3>VAT Identification Number</h3>
+                <p>
+                    VAT identification number pursuant to §27 a German Value Added Tax Act (UStG):<br>
+                    To be announced upon registration.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
     <!-- Footer: Enthält Informationen zum Unternehmen und weiterführende Links -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>TÜ.EVAL</h3>
-                    <p>Ihr Partner für KI-Evaluierung und Compliance-Lösungen auf höchstem Niveau.</p>
+                    <h3>MIMIR</h3>
+                    <p>Intelligent AI routing and evaluation solutions for the next generation of AI applications.</p>
                 </div>
                 <div class="footer-column">
-                    <h3>Dienstleistungen</h3>
+                    <h3>Products</h3>
                     <ul>
-                        <li><a href="#services">Initial Check-Up</a></li>
-                        <li><a href="#services">DE-KI Evaluierung</a></li>
-                        <li><a href="#services">Artisanal Package</a></li>
-                        <li><a href="#services">Compliance-Schulungen</a></li>
+                        <li><a href="#products">MIMIR.PREDICTOR</a></li>
+                        <li><a href="#products">MIMIR.DATASETS</a></li>
+                        <li><a href="#products">MIMIR.EVALUATIONS</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Unternehmen</h3>
+                    <h3>Company</h3>
                     <ul>
-                        <li><a href="#about">Evaluierungsansatz</a></li>
+                        <li><a href="#about">Why AI Evaluation?</a></li>
+                        <li><a href="#methods">Methods</a></li>
                         <li><a href="#roadmap">Roadmap</a></li>
-                        <li><a href="#team">Team</a></li>
-                        <li><a href="#">Karriere</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#glossary">Glossary</a></li><li>
+                        <li><a href="#impressum">Impressum</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Kontakt</h3>
+                    <h3>Contact</h3>
                     <ul>
-                        <li>E-Mail: tuebingen.eval@gmail.com</li>
-                        <li>Adresse: Maria-von-Linden-Str. 6, 72076 Tübingen, Deutschland</li>
+                        <li>Email: contact@mimir.fit</li>
+                        <li>Address: Eichenweg 4, 72076 Tübingen, Germany</li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 TÜ.EVAL. Alle Rechte vorbehalten.</p>
+                <p>&copy; 2025 MIMIR GmbH. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -1343,37 +1522,6 @@
             const question = answer.previousElementSibling;
             const plusMinus = question.querySelector('span:last-child');
             plusMinus.textContent = plusMinus.textContent === '+' ? '-' : '+';
-        }
-        
-        // Funktion zur Berechnung des potentiellen Sanktionierungsrisikos
-        function calculateRisk() {
-            const revenue = parseFloat(document.getElementById('revenue').value);
-            const riskLevel = document.getElementById('risk-level').value;
-            
-            let penalty;
-            let explanation;
-            
-            switch(riskLevel) {
-                case 'high':
-                    penalty = Math.max(35000000, revenue * 0.07);
-                    explanation = "Höchststrafe für verbotene Systeme gemäß Art. 5 EU AI Act";
-                    break;
-                case 'medium':
-                    penalty = Math.max(15000000, revenue * 0.03);
-                    explanation = "Typische Strafe für Hochrisiko-Systemverstöße (Art. 16)";
-                    break;
-                case 'low':
-                    penalty = Math.max(7500000, revenue * 0.01);
-                    explanation = "Strafe für falsche/unvollständige Angaben (Art. 71)";
-                    break;
-                default:
-                    penalty = 0;
-            }
-            document.getElementById('result').innerHTML = `
-                <p><strong>Potenzielle Sanktion:</strong> €${penalty.toLocaleString('de-DE')}</p>
-                <p>${explanation}. Unsere Evaluierung reduziert dieses Risiko nachweislich.</p>
-                <p><a href="#contact" style="color: var(--accent);">Kontaktieren Sie uns</a> für eine individuelle Risikoanalyse.</p>
-            `;
         }
         
         // Öffnet die erste FAQ-Antwort standardmäßig
