@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIMIR - Intelligent AI Agent Routing & Evaluation</title>
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary: #FFFFFF;
+            --secondary: #FF6600;
+            --accent: #BB00BB;
+            --dark: #000000;
+            --gradient: radial-gradient(circle at right, #4A148C 0%, #000000 70%);
+        }
+        
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--primary);
+            line-height: 1.6;
+            background: var(--gradient);
+            background-attachment: fixed;
+        }
+        
+        /* Header */
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-image {
+            width: 100px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+        
+        .logo-text span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .menu-toggle {
+            display: none;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .hero .tagline {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.9rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #E55C00;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 102, 0, 0.4);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(187, 0, 187, 0.15);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 4rem 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+        
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        .section-intro {
+            text-align: center;
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.85);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+        
+        /* Vision Section */
+        .vision {
+            background: linear-gradient(135deg, rgba(74, 20, 140, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%);
+        }
+        
+        .vision-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .vision-card {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(187, 0, 187, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .vision-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 8px 24px rgba(187, 0, 187, 0.2);
+        }
+        
+        .vision-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .vision-card h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        
+        /* Products Section */
+        .products {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        
+        .product-card {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+        }
+        
+        .product-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+        
+        .product-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .product-badge {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .product-card h3 {
+            color: var(--secondary);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .product-description {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .product-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-item {
+            background-color: rgba(187, 0, 187, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent);
+        }
+        
+        .feature-item h4 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Timeline Section */
+        .timeline {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .timeline-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            padding: 2rem 0;
+        }
+        
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--secondary), var(--accent));
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            padding: 2rem;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 3rem;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 3rem;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background: var(--secondary);
+            border: 4px solid var(--dark);
+            border-radius: 50%;
+            top: 2.5rem;
+            box-shadow: 0 0 12px rgba(255, 102, 0, 0.6);
+        }
+        
+        .timeline-item:nth-child(odd)::after {
+            right: -14px;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -14px;
+        }
+        
+        .timeline-content {
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+        }
+        
+        .timeline-content:hover {
+            border-color: var(--accent);
+            transform: scale(1.02);
+        }
+        
+        .timeline-date {
+            color: var(--secondary);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-title {
+            color: var(--accent);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-description {
+            line-height: 1.6;
+        }
+        
+        /* How It Works Section */
+        .how-it-works {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(74, 20, 140, 0.3) 100%);
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .step {
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+        }
+        
+        .step:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        .step-number {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .step h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        /* Use Cases Section */
+        .use-cases {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .use-case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .use-case-card {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+        }
+        
+        .use-case-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(187, 0, 187, 0.2);
+        }
+        
+        .use-case-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .use-case-card h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+        
+        .faq-question:hover {
+            background-color: rgba(187, 0, 187, 0.1);
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+        
+        .faq-question.active::after {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .faq-answer.show {
+            max-height: 1000px;
+            padding: 0 1.5rem 1.5rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        
+        .contact-message {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .contact-message a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .contact-message a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 3rem 0 1rem;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-column a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(0,0,0,0.95);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .tagline {
+                font-size: 1.1rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .timeline-container::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 60px !important;
+                padding-right: 0 !important;
+                left: 0 !important;
+            }
+            
+            .timeline-item::after {
+                left: 8px !important;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+
+            .product-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <div class="logo-image">
+                        <img src="TE_logo_0.png" alt="MIMIR Logo">
+                    </div>
+                    <div class="logo-text">MIMIR</div>
+                </a>
+                <button class="menu-toggle">☰</button>
+                <div class="nav-links">
+                    <a href="#vision">Vision</a>
+                    <a href="#products">Products</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#timeline">Timeline</a>
+                    <a href="#use-cases">Use Cases</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Make Intelligent AI Choices</h1>
+            <p class="tagline">MIMIR empowers you to select the right AI agent for every task through predictive evaluation and intelligent routing</p>
+            <p class="subtitle">Our technology predicts AI performance, compliance, and costs before you commit—giving you the confidence to deploy AI solutions that truly work</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Get Started</a>
+                <a href="#products" class="btn btn-secondary">Explore Products</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Vision Section -->
+    <section id="vision" class="vision">
+        <div class="container">
+            <h2>Our Vision</h2>
+            <p class="section-intro">We're building the infrastructure for a future where AI choices are data-driven, transparent, and democratized—not controlled by a few large corporations</p>
+            
+            <div class="vision-content">
+                <div class="vision-card">
+                    <div class="vision-icon">🎯</div>
+                    <h3>Democratize AI Decisions</h3>
+                    <p>Put the power of informed AI selection in everyone's hands. No more relying solely on vendor claims or marketing hype—make decisions based on real, verified performance data.</p>
+                </div>
+                
+                <div class="vision-card">
+                    <div class="vision-icon">🔄</div>
+                    <h3>Data Flywheel</h3>
+                    <p>Build a continuously improving system where every routing decision generates data that makes future predictions more accurate. As more users and agents join, the entire ecosystem gets smarter.</p>
+                </div>
+                
+                <div class="vision-card">
+                    <div class="vision-icon">🌐</div>
+                    <h3>Open AI Ecosystem</h3>
+                    <p>Enable a vibrant marketplace where AI agents compete on merit. Our independent evaluation platform ensures transparency and fairness in the emerging agent economy.</p>
+                </div>
+                
+                <div class="vision-card">
+                    <div class="vision-icon">⚖️</div>
+                    <h3>Compliance First</h3>
+                    <p>Ensure European regulatory standards are met from day one. Our evaluation framework incorporates EU AI Act requirements, GDPR, and other critical compliance dimensions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2>Our Products</h2>
+            <p class="section-intro">Four powerful solutions to navigate the AI agent landscape with confidence</p>
+            
+            <!-- MIMIR.PREDICTOR -->
+            <div class="product-card">
+                <div class="product-header">
+                    <div class="product-badge">Core Technology</div>
+                    <h3>MIMIR.PREDICTOR</h3>
+                </div>
+                <p class="product-description">
+                    The engine at the heart of everything we do. MIMIR.PREDICTOR is a transformer-based system that accurately predicts how well any AI agent will perform on your specific task—before you run it. It evaluates performance, compliance risk, cost efficiency, and more across multiple dimensions.
+                </p>
+                <p class="product-description">
+                    Unlike simple routing systems that just pick a model, MIMIR.PREDICTOR provides quantitative quality predictions for each agent, allowing you to make informed decisions based on your unique requirements.
+                </p>
+                <div class="product-features">
+                    <div class="feature-item">
+                        <h4>🎯 Multi-Dimensional Prediction</h4>
+                        <p>Forecast correctness, compliance, costs, and other critical metrics</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>🔮 Uncertainty Quantification</h4>
+                        <p>Know how confident the prediction is for better risk management</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>⚡ Efficient at Scale</h4>
+                        <p>Handle predictions for many agents and tasks simultaneously</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>🔄 Continuous Learning</h4>
+                        <p>Improves over time as more evaluation data becomes available</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- MIMIR.ROUTER -->
+            <div class="product-card">
+                <div class="product-header">
+                    <div class="product-badge">Main Product</div>
+                    <h3>MIMIR.ROUTER</h3>
+                </div>
+                <p class="product-description">
+                    Your intelligent AI agent dispatcher. MIMIR.ROUTER uses the PREDICTOR to automatically select the optimal AI agent for each task based on your criteria—whether that's maximizing accuracy, minimizing cost, ensuring compliance, or balancing all three.
+                </p>
+                <p class="product-description">
+                    Perfect for businesses running multi-agent systems, developers building AI applications, and super-agents that need to delegate tasks intelligently.
+                </p>
+                <div class="product-features">
+                    <div class="feature-item">
+                        <h4>🤖 Smart Agent Selection</h4>
+                        <p>Automatically routes tasks to the best-suited AI agent</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>⚙️ Customizable Criteria</h4>
+                        <p>Set your own priorities: performance, cost, compliance, speed</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>📊 Real-Time Analytics</h4>
+                        <p>Track routing decisions and measure actual vs. predicted performance</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>🔌 Easy Integration</h4>
+                        <p>Works with existing AI infrastructure via simple API</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- MIMIR.EVALUATIONS -->
+            <div class="product-card">
+                <div class="product-header">
+                    <div class="product-badge">Business Solution</div>
+                    <h3>MIMIR.EVALUATIONS</h3>
+                </div>
+                <p class="product-description">
+                    Comprehensive viability assessment for your AI deployment. Before you invest in building that chatbot, customer service agent, or automated workflow, let MIMIR.EVALUATIONS tell you if it will actually work for your specific use case.
+                </p>
+                <p class="product-description">
+                    We test proposed AI solutions against your real requirements, data, and constraints—providing detailed reports on expected performance, compliance risks, and cost implications.
+                </p>
+                <div class="product-features">
+                    <div class="feature-item">
+                        <h4>🎯 Use-Case Specific</h4>
+                        <p>Evaluate AI solutions for your exact business context</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>📋 Compliance Reports</h4>
+                        <p>Detailed analysis of EU AI Act, GDPR, and regulatory alignment</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>💰 Cost Projections</h4>
+                        <p>Understand the true TCO before deployment</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>🛡️ Risk Assessment</h4>
+                        <p>Identify potential failure modes and mitigation strategies</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- MIMIR.DATASETS -->
+            <div class="product-card">
+                <div class="product-header">
+                    <div class="product-badge">Evaluation Resources</div>
+                    <h3>MIMIR.DATASETS</h3>
+                </div>
+                <p class="product-description">
+                    Specialized evaluation datasets that fill critical gaps in the AI testing landscape. Our datasets are designed to assess AI agents on dimensions that matter for European businesses—from EU AI Act compliance to domain-specific performance benchmarks.
+                </p>
+                <p class="product-description">
+                    These datasets power our PREDICTOR and ROUTER, but also serve as standalone products for organizations building their own evaluation pipelines.
+                </p>
+                <div class="product-features">
+                    <div class="feature-item">
+                        <h4>⚖️ Compliance-Focused</h4>
+                        <p>Purpose-built for EU AI Act and regulatory requirements</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>🎯 Gap Analysis</h4>
+                        <p>Cover evaluation areas overlooked by standard benchmarks</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>📚 Continuously Updated</h4>
+                        <p>Regularly expanded to address emerging risk areas</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>🔍 High Quality</h4>
+                        <p>Curated and verified for accuracy and relevance</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <p class="section-intro">From evaluation data to intelligent routing in three steps</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Collect Evaluation Data</h3>
+                    <p>We systematically evaluate AI agents on diverse datasets covering performance, compliance, safety, and domain-specific tasks. This creates a rich knowledge base of how different agents perform across various dimensions.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Train Predictor</h3>
+                    <p>Our transformer-based PREDICTOR learns patterns from this evaluation data. It discovers which agent characteristics correlate with success on different types of tasks, enabling accurate predictions for new, unseen queries.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Route Intelligently</h3>
+                    <p>When you submit a task, the PREDICTOR forecasts how each available agent would perform. The ROUTER then selects the optimal agent based on your criteria—or provides you with predictions to make your own informed choice.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Timeline Section -->
+    <section id="timeline" class="timeline">
+        <div class="container">
+            <h2>Our Journey</h2>
+            <p class="section-intro">Building the future of AI agent selection, one milestone at a time</p>
+            
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Months 1-3</div>
+                        <div class="timeline-title">Foundation Phase</div>
+                        <div class="timeline-description">
+                            <strong>Predictor Benchmarking:</strong> Establish testing infrastructure and baseline comparisons<br><br>
+                            <strong>Server Infrastructure:</strong> Deploy scalable compute resources for evaluation and training<br><br>
+                            <strong>Evaluation Systematization:</strong> Map existing benchmarks and identify gaps in coverage
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Months 3-4</div>
+                        <div class="timeline-title">Core Development</div>
+                        <div class="timeline-description">
+                            <strong>Predictor Implementation:</strong> Build transformer-based predictor with proven prediction capabilities<br><br>
+                            <strong>Evaluation Pipeline:</strong> Create automated system for running and formatting agent evaluations<br><br>
+                            <strong>Gap Closure:</strong> Develop custom datasets for underserved evaluation areas
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Months 4-5</div>
+                        <div class="timeline-title">Product Launch</div>
+                        <div class="timeline-description">
+                            <strong>Predictor Optimization:</strong> Expand prediction categories, improve efficiency, quantify uncertainty<br><br>
+                            <strong>Router Reporting:</strong> Build customer-facing dashboards and comparison tools<br><br>
+                            <strong>Evaluation Platform:</strong> Deploy dynamic database of all evaluation resources
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2026</div>
+                        <div class="timeline-title">Growth & Learning</div>
+                        <div class="timeline-description">
+                            <strong>First Customers:</strong> Deploy ROUTER and EVALUATIONS for early adopters<br><br>
+                            <strong>Data Flywheel Begins:</strong> Start collecting real-world routing decisions<br><br>
+                            <strong>Dataset Expansion:</strong> Release first commercial datasets for external use
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2027</div>
+                        <div class="timeline-title">Ecosystem Development</div>
+                        <div class="timeline-description">
+                            <strong>Super-Agent Integration:</strong> Enable AI agents to use ROUTER for task delegation<br><br>
+                            <strong>Continuous Improvement:</strong> Predictor accuracy increases from flywheel effect<br><br>
+                            <strong>Community Platform:</strong> Launch public evaluation leaderboards and tools
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2028+</div>
+                        <div class="timeline-title">Democratized AI Future</div>
+                        <div class="timeline-description">
+                            <strong>Independent Standard:</strong> MIMIR becomes trusted source for AI agent evaluation<br><br>
+                            <strong>Open Market:</strong> Fair competition between agents based on verified capabilities<br><br>
+                            <strong>User Empowerment:</strong> Everyone can make informed AI choices with confidence
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Use Cases Section -->
+    <section id="use-cases" class="use-cases">
+        <div class="container">
+            <h2>Use Cases</h2>
+            <p class="section-intro">MIMIR serves diverse needs across the AI ecosystem</p>
+            
+            <div class="use-case-grid">
+                <div class="use-case-card">
+                    <div class="use-case-icon">🏢</div>
+                    <h3>Enterprise Deployment</h3>
+                    <p>Assess whether a customer service chatbot or document processing agent will meet your performance and compliance requirements before investing in development.</p>
+                </div>
+                
+                <div class="use-case-card">
+                    <div class="use-case-icon">💻</div>
+                    <h3>Developer Platforms</h3>
+                    <p>Integrate ROUTER into your AI application to automatically select the best model for each user request, optimizing for cost, speed, or accuracy.</p>
+                </div>
+                
+                <div class="use-case-card">
+                    <div class="use-case-icon">🤖</div>
+                    <h3>Multi-Agent Systems</h3>
+                    <p>Enable super-agents to intelligently delegate subtasks to specialized agents based on predicted performance and compliance requirements.</p>
+                </div>
+                
+                <div class="use-case-card">
+                    <div class="use-case-icon">⚖️</div>
+                    <h3>Compliance Teams</h3>
+                    <p>Verify that AI systems meet EU AI Act, GDPR, and other regulatory requirements through comprehensive evaluation reports.</p>
+                </div>
+                
+                <div class="use-case-card">
+                    <div class="use-case-icon">🔬</div>
+                    <h3>AI Researchers</h3>
+                    <p>Access specialized datasets for evaluating agent capabilities in areas not covered by standard benchmarks.</p>
+                </div>
+                
+                <div class="use-case-card">
+                    <div class="use-case-icon">💰</div>
+                    <h3>Cost Optimization</h3>
+                    <p>Reduce AI infrastructure costs by routing simple tasks to cheaper models while using premium models only when necessary.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        How is MIMIR different from existing AI routing solutions?
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most routers simply select a model based on basic heuristics or prompt similarity. MIMIR.PREDICTOR provides quantitative predictions across multiple dimensions—not just "which model," but "how well will this model perform on correctness, compliance, cost, and other factors you care about."</p>
+                        <p>This enables sophisticated decision-making: you might choose a slightly less accurate model if it significantly reduces compliance risk or cost, depending on your priorities.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        What makes your evaluation datasets unique?
+                    </div>
+                    <div class="faq-answer">
+                        <p>We systematically identify gaps in the evaluation landscape—areas critical for European businesses but underserved by existing benchmarks. This includes EU AI Act compliance testing, industry-specific scenarios, and risk assessment dimensions.</p>
+                        <p>Our datasets are designed with real regulatory requirements in mind, not just academic benchmarks.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        How does the data flywheel work?
+                    </div>
+                    <div class="faq-answer">
+                        <p>Every time ROUTER makes a selection, we can compare predicted performance to actual performance. This feedback improves the PREDICTOR's accuracy over time.</p>
+                        <p>As more users and agents join the ecosystem, we gather more diverse evaluation data, making predictions better for everyone. It's a virtuous cycle that increases value for all participants.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        Can I use MIMIR with my existing AI infrastructure?
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! MIMIR.ROUTER integrates via API and can work with any AI agents you can access—whether they're commercial APIs (OpenAI, Anthropic, etc.), open-source models, or your own fine-tuned systems.</p>
+                        <p>MIMIR.EVALUATIONS can assess any AI system you're considering deploying, regardless of the underlying technology.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        What stage are you at in development?
+                    </div>
+                    <div class="faq-answer">
+                        <p>We're currently in the foundation phase (months 1-3 of our project plan), building the core PREDICTOR technology, evaluation infrastructure, and initial datasets.</p>
+                        <p>We're working with early design partners to shape the products and welcome conversations with potential customers and collaborators.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        How do you ensure fairness in agent evaluation?
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our evaluation methodology is transparent and systematic. We use diverse, well-documented datasets and publish our evaluation procedures. Unlike vendor-provided benchmarks, we're an independent third party with no incentive to favor particular AI systems.</p>
+                        <p>Our goal is to create a fair marketplace where agents compete on actual capabilities, not marketing budgets.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <div class="contact-message">
+                <p>Whether you're interested in using our products, partnering with us, joining our team, or exploring funding opportunities—we'd love to hear from you.</p>
+                <p>Email us at <a href="mailto:info@mimir.ai">info@mimir.ai</a></p>
+                <p style="margin-top: 2rem; font-size: 0.95rem; color: rgba(255,255,255,0.7);">
+                    MIMIR GmbH in Gründung<br>
+                    Eichenweg 4, 72076 Tübingen, Germany
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>MIMIR</h3>
+                    <p>Making intelligent AI choices accessible to everyone</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="#products">MIMIR.PREDICTOR</a></li>
+                        <li><a href="#products">MIMIR.ROUTER</a></li>
+                        <li><a href="#products">MIMIR.EVALUATIONS</a></li>
+                        <li><a href="#products">MIMIR.DATASETS</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#vision">Vision</a></li>
+                        <li><a href="#timeline">Timeline</a></li>
+                        <li><a href="#use-cases">Use Cases</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>Email: <a href="mailto:info@mimir.ai">info@mimir.ai</a></li>
+                        <li>Tübingen, Germany</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 MIMIR GmbH in Gründung. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navLinks = document.querySelector('.nav-links');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+        
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+        
+        // FAQ toggle
+        function toggleFAQ(element) {
+            element.classList.toggle('active');
+            const answer = element.nextElementSibling;
+            answer.classList.toggle('show');
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
