@@ -89,6 +89,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
         }
         
         .logo-image img {
@@ -104,13 +105,17 @@
         
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 1.4rem;
+            flex-wrap: nowrap;
+            align-items: center;
         }
         
         .nav-links a {
             color: white;
             text-decoration: none;
             font-weight: 500;
+            font-size: 0.95rem;
+            white-space: nowrap;
             transition: all 0.3s;
             padding: 0.5rem 0;
             position: relative;
@@ -801,10 +806,22 @@
             max-width: 1200px;
             text-align: center;
         }
+
+        .contact h2 {
+            display: block;
+            left: auto;
+            transform: none;
+            margin-bottom: 2rem;
+        }
+
+        .contact h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
         
         .contact-message {
             max-width: 700px;
-            margin: 0 auto;
+            margin: 2rem auto 0;
             font-size: 1.15rem;
             line-height: 1.8;
             background-color: rgba(0, 0, 0, 0.3);
@@ -1055,6 +1072,165 @@
             }
         }
         
+        /* Jobs Section */
+        .jobs {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(74, 20, 140, 0.35) 100%);
+            border-radius: 16px;
+            margin: 3rem auto;
+            max-width: 1200px;
+        }
+
+        .jobs-intro {
+            text-align: center;
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.85);
+            max-width: 750px;
+            margin: 2rem auto 3rem;
+            line-height: 1.7;
+        }
+
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.8rem;
+            margin-top: 2rem;
+        }
+
+        .job-card {
+            background: rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(187, 0, 187, 0.2);
+            border-radius: 14px;
+            padding: 2rem;
+            transition: all 0.35s ease;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .job-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 18px 40px rgba(187, 0, 187, 0.2);
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .job-card-icon {
+            font-size: 2.2rem;
+            color: var(--secondary);
+        }
+
+        .job-card h3 {
+            font-size: 1.35rem;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .job-card p {
+            color: rgba(255,255,255,0.75);
+            font-size: 0.97rem;
+            line-height: 1.65;
+            flex-grow: 1;
+        }
+
+        .job-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.25rem;
+        }
+
+        .job-tag {
+            background: rgba(187, 0, 187, 0.15);
+            border: 1px solid rgba(187, 0, 187, 0.35);
+            color: var(--accent-light);
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 0.25rem 0.7rem;
+            border-radius: 20px;
+            letter-spacing: 0.03em;
+        }
+
+        .job-tag.orange {
+            background: rgba(255, 102, 0, 0.12);
+            border-color: rgba(255, 102, 0, 0.35);
+            color: #FF8C3A;
+        }
+
+        .job-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+            padding: 0.65rem 1.4rem;
+            background: linear-gradient(135deg, var(--secondary), #FF8533);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            align-self: flex-start;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .job-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(255, 102, 0, 0.4);
+            background: linear-gradient(135deg, #E55C00, #FF6600);
+        }
+
+        .jobs-contact-box {
+            margin-top: 3.5rem;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 14px;
+            padding: 2.5rem 2rem;
+        }
+
+        .jobs-contact-box p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.05rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .jobs-contact-box a.email-link {
+            color: var(--accent-light);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1.1rem;
+            letter-spacing: 0.02em;
+            transition: color 0.2s;
+        }
+
+        .jobs-contact-box a.email-link:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .jobs-pdf-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.25rem;
+            padding: 0.7rem 1.6rem;
+            border: 2px solid var(--accent);
+            color: var(--accent-light);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .jobs-pdf-link:hover {
+            background: rgba(187, 0, 187, 0.15);
+            border-color: var(--accent-light);
+            color: #fff;
+        }
+
         /* Animation for cards */
         @keyframes fadeInUp {
             from {
@@ -1093,6 +1269,7 @@
                     <a href="#timeline">Timeline</a>
                     <a href="#use-cases">Use Cases</a>
                     <a href="#faq">FAQ</a>
+                    <a href="#jobs">Jobs</a>
                     <a href="#contact">Contact</a>
                     <a href="#legal">Legal</a>
                 </div>
@@ -1115,6 +1292,9 @@
                 </a>
                 <a href="#products" class="btn btn-secondary">
                     <i class="fas fa-search"></i> Explore Products
+                </a>
+                <a href="#jobs" class="btn btn-secondary">
+                    <i class="fas fa-briefcase"></i> Open Positions
                 </a>
             </div>
         </div>
@@ -1180,6 +1360,9 @@
                 <br><br>
                 <span class="highlight">Evidence-based routing is enabled by our composition of state-of-the-art AI benchmarking tools, completed with handcrafted evals for your specific needs.</span> Thus, MIMIR ensures that your AI systems are compliant, reliable, and effective. We're pioneering the future of AI orchestration with our four core products: MIMIR.PREDICTOR, MIMIR.ROUTER, MIMIR.DATASETS, and MIMIR.EVALUATIONS.
             </p>
+            <div style="text-align: center; margin-top: 2.5rem;">
+                <img src="TE_logo_0.png" alt="MIMIR Logo" style="width: clamp(160px, 36%, 320px); height: auto; opacity: 0.85;">
+            </div>
         </div>
     </section>
     
@@ -1334,7 +1517,7 @@
                     <h3>MIMIR.PREDICTOR</h3>
                 </div>
                 <p class="product-description">
-                    The engine at the heart of everything we do. MIMIR.PREDICTOR is a transformer-based system that accurately predicts how well any AI agent will perform on your specific task—before you run it. It evaluates performance, compliance risk, cost efficiency, and more across multiple dimensions.
+                    The engine at the heart of everything we do. MIMIR.PREDICTOR is a transformer-based system that accurately predicts how well any AI agent will perform on your specific task, before you run it, evaluating performance, compliance risk, cost efficiency, and more across multiple dimensions.
                 </p>
                 <p class="product-description">
                     Unlike simple routing systems that just pick a model, MIMIR.PREDICTOR provides quantitative quality predictions for each agent, allowing you to make informed decisions based on your unique requirements.
@@ -1366,7 +1549,7 @@
                     <h3>MIMIR.ROUTER</h3>
                 </div>
                 <p class="product-description">
-                    Your intelligent AI agent dispatcher. MIMIR.ROUTER uses the PREDICTOR to automatically select the optimal AI agent for each task based on your criteria—whether that's maximizing accuracy, minimizing cost, ensuring compliance, or balancing all three.
+                    Your intelligent AI agent dispatcher. MIMIR.ROUTER uses the PREDICTOR to automatically select the optimal AI agent for each task based on your criteria. Whether that's maximizing accuracy, minimizing cost, ensuring compliance, or balancing all three.
                 </p>
                 <p class="product-description">
                     Perfect for businesses running multi-agent systems, developers building AI applications, and super-agents that need to delegate tasks intelligently.
@@ -1401,7 +1584,7 @@
                     Comprehensive viability assessment for your AI deployment. Before you invest in building that chatbot, customer service agent, or automated workflow, let MIMIR.EVALUATIONS tell you if it will actually work for your specific use case.
                 </p>
                 <p class="product-description">
-                    We test proposed AI solutions against your real requirements, data, and constraints—providing detailed reports on expected performance, compliance risks, and cost implications.
+                    We test proposed AI solutions against your real requirements, data, and constraints, providing detailed reports on expected performance, compliance risks, and cost implications.
                 </p>
                 <div class="product-features">
                     <div class="feature-item">
@@ -1430,7 +1613,7 @@
                     <h3>MIMIR.DATASETS</h3>
                 </div>
                 <p class="product-description">
-                    Specialized evaluation datasets that fill critical gaps in the AI testing landscape. Our datasets are designed to assess AI agents on dimensions that matter for European businesses—from EU AI Act compliance to domain-specific performance benchmarks.
+                    Specialized evaluation datasets that fill critical gaps in the AI testing landscape. Our datasets are designed to assess AI agents on dimensions that matter for European businesses, from EU AI Act compliance to domain-specific performance benchmarks.
                 </p>
                 <p class="product-description">
                     These datasets power our PREDICTOR and ROUTER, but also serve as standalone products for organizations building their own evaluation pipelines.
@@ -1466,20 +1649,20 @@
             <div class="steps">
                 <div class="step fade-in">
                     <div class="step-number">1</div>
-                    <h3>Collect Evaluation Data</h3>
-                    <p>We systematically evaluate AI agents on diverse datasets covering performance, compliance, safety, and domain-specific tasks. This creates a rich knowledge base of how different agents perform across various dimensions.</p>
+                    <h3>Systematic Agent Evaluation</h3>
+                    <p>We continuously evaluate AI agents and models across diverse benchmarks covering performance, compliance, safety, and domain-specific tasks. This builds a rich, ever-growing knowledge base of how agents behave across the dimensions that matter. Customers can submit their own agents for evaluation via MIMIR.EVALUATIONS.</p>
                 </div>
                 
                 <div class="step fade-in">
                     <div class="step-number">2</div>
-                    <h3>Train Predictor</h3>
-                    <p>Our transformer-based PREDICTOR learns patterns from this evaluation data. It discovers which agent characteristics correlate with success on different types of tasks, enabling accurate predictions for new, unseen queries.</p>
+                    <h3>Learning to Predict Outcomes</h3>
+                    <p>Internally, our transformer-based PREDICTOR learns from accumulated evaluation data. It identifies which agent characteristics predict success on different task types, enabling accurate, calibrated forecasts for queries it has never seen before. This is our core technology. Customers simply benefit from its predictions, with no setup required.</p>
                 </div>
                 
                 <div class="step fade-in">
                     <div class="step-number">3</div>
-                    <h3>Route Intelligently</h3>
-                    <p>When you submit a task, the PREDICTOR forecasts how each available agent would perform. The ROUTER then selects the optimal agent based on your criteria—or provides you with predictions to make your own informed choice.</p>
+                    <h3>Intelligent Routing, Instantly</h3>
+                    <p>When you submit a task, the PREDICTOR forecasts how each available agent would perform across quality, cost, and compliance. The ROUTER selects the optimal agent for your criteria automatically. Or, if you prefer, MIMIR surfaces the predictions directly so your team or workflows can make the final call.</p>
                 </div>
             </div>
         </div>
@@ -1636,7 +1819,7 @@
                         How is MIMIR different from existing AI routing solutions?
                     </div>
                     <div class="faq-answer">
-                        <p>Most routers simply select a model based on basic heuristics or prompt similarity. MIMIR.PREDICTOR provides quantitative predictions across multiple dimensions—not just "which model," but "how well will this model perform on correctness, compliance, cost, and other factors you care about."</p>
+                        <p>Most routers simply select a model based on basic heuristics or prompt similarity. MIMIR.PREDICTOR provides quantitative predictions across multiple dimensions. Not just "which model," but "how well will this model perform on correctness, compliance, cost, and other factors you care about."</p>
                         <p>This enables sophisticated decision-making: you might choose a slightly less accurate model if it significantly reduces compliance risk or cost, depending on your priorities.</p>
                     </div>
                 </div>
@@ -1646,7 +1829,7 @@
                         What makes your evaluation datasets unique?
                     </div>
                     <div class="faq-answer">
-                        <p>We systematically identify gaps in the evaluation landscape—areas critical for European businesses but underserved by existing benchmarks. This includes EU AI Act compliance testing, industry-specific scenarios, and risk assessment dimensions.</p>
+                        <p>We systematically identify gaps in the evaluation landscape, covering areas critical for European businesses but underserved by existing benchmarks. This includes EU AI Act compliance testing, industry-specific scenarios, and risk assessment dimensions.</p>
                         <p>Our datasets are designed with real regulatory requirements in mind, not just academic benchmarks.</p>
                     </div>
                 </div>
@@ -1666,7 +1849,7 @@
                         Can I use MIMIR with my existing AI infrastructure?
                     </div>
                     <div class="faq-answer">
-                        <p>Yes! MIMIR.ROUTER integrates via API and can work with any AI agents you can access—whether they're commercial APIs (OpenAI, Anthropic, etc.), open-source models, or your own fine-tuned systems.</p>
+                        <p>Yes! MIMIR.ROUTER integrates via API and can work with any AI agents you can access, whether they're commercial APIs (OpenAI, Anthropic, etc.), open-source models, or your own fine-tuned systems.</p>
                         <p>MIMIR.EVALUATIONS can assess any AI system you're considering deploying, regardless of the underlying technology.</p>
                     </div>
                 </div>
@@ -1694,13 +1877,100 @@
         </div>
     </section>
     
+    <!-- Jobs Section -->
+    <section id="jobs" class="jobs">
+        <div class="container">
+            <h2>Open Positions</h2>
+            <p class="jobs-intro">
+                We're a deep-tech team working on hard ML problems with real product leverage.
+                Join us in building the best AI router, optimized for quality, compliance, and cost.
+                Roles are available as thesis projects, PhD collaborations, or paid part-time / full-time positions.
+                Based in Tübingen, Germany, with remote options.
+            </p>
+
+            <div class="jobs-grid">
+
+                <!-- Data Engineer -->
+                <div class="job-card fade-in">
+                    <div class="job-card-icon"><i class="fas fa-database"></i></div>
+                    <h3>Data Engineer</h3>
+                    <p>
+                        Build the data pipelines and benchmark datasets that power AI agent evaluation at scale.
+                        Design and implement the infrastructure that turns diverse sources into reliable,
+                        reproducible benchmarks for agent behaviour, routing quality, and compliance-relevant properties.
+                    </p>
+                    <div class="job-tags">
+                        <span class="job-tag">Thesis / PT / FT</span>
+                        <span class="job-tag orange">~6 months</span>
+                        <span class="job-tag">Tübingen / Remote</span>
+                    </div>
+                    <a href="documents/mimir_open_positions.pdf" target="_blank" class="job-cta">
+                        <i class="fas fa-file-pdf"></i> View Full Description
+                    </a>
+                </div>
+
+                <!-- ML Scientist -->
+                <div class="job-card fade-in">
+                    <div class="job-card-icon"><i class="fas fa-project-diagram"></i></div>
+                    <h3>ML Scientist</h3>
+                    <p>
+                        Design novel architectures for learned routing and model outcome prediction.
+                        Tackle frontier ML problems: learned attention for model selection, fast inner product retrieval,
+                        and multi-objective training with imbalanced data. Publication opportunities at top venues (NeurIPS, ICML, ICLR).
+                    </p>
+                    <div class="job-tags">
+                        <span class="job-tag">Thesis / PhD / PT / FT</span>
+                        <span class="job-tag orange">~6 months</span>
+                        <span class="job-tag">Tübingen / Remote</span>
+                    </div>
+                    <a href="documents/mimir_open_positions.pdf" target="_blank" class="job-cta">
+                        <i class="fas fa-file-pdf"></i> View Full Description
+                    </a>
+                </div>
+
+                <!-- Multi-Agent Developer -->
+                <div class="job-card fade-in">
+                    <div class="job-card-icon"><i class="fas fa-sitemap"></i></div>
+                    <h3>Developer: Router Output &amp; Multi-Agent Platform</h3>
+                    <p>
+                        Build the routing infrastructure, multi-agent systems, and interfaces that bring evaluation to users.
+                        Design agentic routing platforms, evaluation APIs, dashboards, and the server infrastructure
+                        underpinning MIMIR's full evaluation pipeline.
+                    </p>
+                    <div class="job-tags">
+                        <span class="job-tag">Thesis / PT / FT</span>
+                        <span class="job-tag orange">~6 months</span>
+                        <span class="job-tag">Tübingen / Remote</span>
+                    </div>
+                    <a href="documents/mimir_open_positions.pdf" target="_blank" class="job-cta">
+                        <i class="fas fa-file-pdf"></i> View Full Description
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Contact / PDF box -->
+            <div class="jobs-contact-box">
+                <p>Interested? Send a short note about which role and project excites you most, along with a CV or link to relevant work.</p>
+                <p>
+                    <a href="/cdn-cgi/l/email-protection#a8cbc7c6dcc9cbdce8c5c1c5c1da86cec1dc" class="email-link">
+                        <i class="fas fa-envelope"></i>&nbsp; <span class="__cf_email__" data-cfemail="3e5d51504a5f5d4a7e535753574c1058574a">[email&#160;protected]</span>
+                    </a>
+                </p>
+                <a href="documents/mimir_open_positions.pdf" target="_blank" class="jobs-pdf-link">
+                    <i class="fas fa-file-pdf"></i> Download Full Job Descriptions (PDF)
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
             <h2>Get in Touch</h2>
             <div class="contact-message">
-                <p>Whether you're interested in using our products, partnering with us, joining our team, or exploring funding opportunities—we'd love to hear from you.</p>
-                <p>Email us at <a href="mailto:contact@mimir.fit">contact@mimir.fit</a></p>
+                <p>Whether you're interested in using our products, partnering with us, joining our team, or exploring funding opportunities — we'd love to hear from you.</p>
+                <p>Email us at <a href="/cdn-cgi/l/email-protection#81e2eeeff5e0e2f5c1ece8ece8f3afe7e8f5"><span class="__cf_email__" data-cfemail="3c5f5352485d5f487c515551554e125a5548">[email&#160;protected]</span></a></p>
             </div>
         </div>
     </section>
@@ -1726,7 +1996,7 @@
 
                 <h3>Contact</h3>
                 <p>
-                    E-mail: <a href="mailto:contact@mimir.fit">contact@mimir.fit</a><br>
+                    E-mail: <a href="/cdn-cgi/l/email-protection#31525e5f45505245715c585c58431f575845"><span class="__cf_email__" data-cfemail="2f4c40415b4e4c5b6f424642465d0149465b">[email&#160;protected]</span></a><br>
                 </p>
                 
                 <h3>Commercial Register Entry</h3>
@@ -1770,13 +2040,14 @@
                         <li><a href="#timeline"><i class="fas fa-chevron-right"></i> Timeline</a></li>
                         <li><a href="#use-cases"><i class="fas fa-chevron-right"></i> Use Cases</a></li>
                         <li><a href="#faq"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                        <li><a href="#jobs"><i class="fas fa-chevron-right"></i> Jobs</a></li>
                         <li><a href="#legal"><i class="fas fa-chevron-right"></i> Legal Notice</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Contact</h3>
                     <ul>
-                        <li><a href="mailto:info@mimir.ai"><i class="fas fa-envelope"></i> info@mimir.ai</a></li>
+                        <li><a href="/cdn-cgi/l/email-protection#2c45424a436c414541455e024d45"><i class="fas fa-envelope"></i> <span class="__cf_email__" data-cfemail="1a73747c755a7773777368347b73">[email&#160;protected]</span></a></li>
                         <li><i class="fas fa-map-marker-alt"></i> Tübingen, Germany</li>
                     </ul>
                 </div>
@@ -1788,7 +2059,7 @@
     </footer>
     
     <!-- JavaScript -->
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Mobile menu toggle
         document.getElementById('menuToggle').addEventListener('click', function() {
             document.getElementById('navLinks').classList.toggle('active');
@@ -1841,30 +2112,4 @@
                 if (target) {
                     target.scrollIntoView({
                         behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-        
-        // Add fade-in animation to elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-        
-        // Observe all elements with fade-in class
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
-</body>
-</html>
+                        block: 'st
