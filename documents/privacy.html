@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIMIR – Privacy Notice</title>
+    <!-- Self‑hosted Font Awesome CSS (contains icon classes) -->
+    <link rel="stylesheet" href="../css/fontawesome.min.css">
+    <link rel="icon" type="image/x-icon" href="../images/MIMIR_favicon.ico">
+    <!-- Self‑hosted fonts + explicit Font Awesome font‑face definitions -->
+    <style>
+        /* ----- Font Awesome font‑face (ensures icons load) ----- */
+        @font-face {
+            font-family: 'Font Awesome 6 Free';
+            font-style: normal;
+            font-weight: 900;
+            font-display: block;
+            src: url('../webfonts/fa-solid-900.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Font Awesome 6 Free';
+            font-style: normal;
+            font-weight: 400;
+            font-display: block;
+            src: url('../webfonts/fa-regular-400.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Font Awesome 6 Brands';
+            font-style: normal;
+            font-weight: 400;
+            font-display: block;
+            src: url('../webfonts/fa-brands-400.woff2') format('woff2');
+        }
+        /* (Optional v4 compatibility font – not required for modern icons) */
+        @font-face {
+            font-family: 'Font Awesome 6 Free';
+            font-style: normal;
+            font-weight: 400;
+            font-display: block;
+            src: url('../webfonts/fa-v4compatibility.woff2') format('woff2');
+        }
+
+        /* ----- Google Fonts (self‑hosted) ----- */
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 300 700;
+            font-display: swap;
+            src: url('../fonts/inter-variable.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400 800;
+            font-display: swap;
+            src: url('../fonts/montserrat-variable.woff2') format('woff2');
+        }
+        /* Source Sans Pro – static weights (matching original design) */
+        @font-face {
+            font-family: 'Source Sans Pro';
+            font-style: normal;
+            font-weight: 300;
+            font-display: swap;
+            src: url('../fonts/source-sans-300.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Source Sans Pro';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('../fonts/source-sans-400.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Source Sans Pro';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url('../fonts/source-sans-600.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Source Sans Pro';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('../fonts/source-sans-700.woff2') format('woff2');
+        }
+        
+        .fa-solid, 
+        .fas {
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            display: inline-block;
+            font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ----- CSS Variables (same as main site) ----- */
+        :root {
+            --primary: #FFFFFF;
+            --secondary: #FF6600;
+            --accent: #BB00BB;
+            --accent-light: #E044E0;
+            --dark: #000000;
+            --dark-light: #1A1A1A;
+            --gradient: radial-gradient(circle at right, #4A148C 0%, #000000 70%);
+            --card-bg: rgba(0, 0, 0, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--primary);
+            line-height: 1.6;
+            background: var(--gradient);
+            background-attachment: fixed;
+            font-weight: 400;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', 'Segoe UI', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.4);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(187, 0, 187, 0.2);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-image {
+            width: 100px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .logo-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        .logo-text span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.4rem;
+            flex-wrap: nowrap;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            transition: all 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-light);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Section styles */
+        section {
+            padding: 5rem 0;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            font-weight: 800;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--secondary), var(--accent));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        h3 {
+            color: var(--secondary);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.6rem;
+        }
+
+        h4 {
+            color: var(--accent-light);
+            margin: 1.5rem 0 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .privacy-content {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 3rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .privacy-content p {
+            margin-bottom: 1rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .privacy-content a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+
+        .privacy-content a:hover {
+            text-decoration: underline;
+        }
+
+        .privacy-content hr {
+            margin: 3rem 0;
+            border: none;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 4rem 0 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(187, 0, 187, 0.2);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .footer-column h3 {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-column a:hover {
+            color: var(--accent-light);
+            transform: translateX(5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0,0,0,0.98);
+                flex-direction: column;
+                padding: 6rem 2rem 2rem;
+                gap: 1.5rem;
+                z-index: 1000;
+                overflow-y: auto;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 1rem;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            h2 {
+                font-size: 2.2rem;
+            }
+            .privacy-content {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">
+                    <div class="logo-image">
+                        <img src="../TE_logo_0.png" alt="MIMIR Logo">
+                    </div>
+                    <div class="logo-text">MIMIR</div>
+                </a>
+                <button class="menu-toggle" id="menuToggle">☰</button>
+                <div class="nav-links" id="navLinks">
+                    <a href="../index.html#vision">Vision</a>
+                    <a href="../index.html#products">Products</a>
+                    <a href="../index.html#how-it-works">How It Works</a>
+                    <a href="../index.html#jobs">Jobs</a>
+                    <a href="../index.html#contact">Contact</a>
+                    <a href="../index.html#legal">Legal</a>
+                    <a href="privacy.html">Privacy</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section style="padding-top: 3rem;">
+        <div class="container">
+            <h2>Privacy Notice</h2>
+            <div class="privacy-content">
+                <!-- English version -->
+                <h3>Privacy Notice – February 20, 2026 (Version 1.0)</h3>
+                <h4>1. Responsible</h4>
+                <p>MIMIR GmbH<br>Eichenweg 4<br>72076 Tübingen<br>Email: <a href="mailto:contact@mimir.fit">contact@mimir.fit</a><br>MIMIR GmbH (hereinafter “MIMIR”; “we”) is the controller within the meaning of Art. 4(7) GDPR for the processing of personal data in connection with this website.</p>
+
+                <h4>2. General Information</h4>
+                <p>We appreciate your visit to our website. Protecting your privacy and safeguarding your personal data when using our website is very important to us. We want you to feel secure when using our website. This Privacy Notice applies to processing activities for which we are the controller. Processing carried out in the context of services we provide to customers (e.g., evaluation of AI agents) is not covered by this Privacy Notice; separate contractual and data protection provisions apply in such cases (e.g., Data Processing Agreement, hereinafter “DPA”).</p>
+
+                <h4>3. Use of the Website</h4>
+                <p>In principle, our website can be used without providing personal data. Where personal data is collected on our pages, this is always done on a voluntary basis. Your personal data will not be disclosed to third parties without your explicit consent.</p>
+
+                <h4>4. Access Data</h4>
+                <p>When you visit our website, certain technical information is automatically transmitted by your browser to our server and may be temporarily stored. This includes, among other things: visited website, time and date of access, amount of data sent in bytes, source/reference from which you accessed the page, browser used, operating system used, IP address used. This data is collected in order to operate the website in a stable and secure manner, adapt the website to users’ needs, and ensure system security. Hosting and technical operation of the website are carried out by Hetzner Online GmbH, Industriestr. 25, 91710 Gunzenhausen. A DPA pursuant to Art. 28 GDPR has been concluded with the provider. The legal basis for this processing is Art. 6(1)(f) GDPR (legitimate interests). The data is anonymised no later than seven days after collection and is not combined with other personal data. Log data is stored beyond this period only on an ad hoc basis, for example to investigate security incidents, and is deleted once the purpose has been fulfilled.</p>
+
+                <h4>5. Cookies and Plug-ins</h4>
+                <p>We currently do not use cookies or comparable technologies (e.g., tracking/analysis tools) and do not integrate external content that automatically transmits data to third parties when accessed (e.g., external web fonts, maps, video players). Should we use cookies or comparable technologies in the future, we will inform you in advance and obtain your consent where legally required.</p>
+
+                <h4>6. Correspondence (Email)</h4>
+                <p>If you contact us by email, we process the data you provide (e.g., name, email address, telephone number, and the content of your message) for the purpose of handling your request. Your data will not be passed on to external parties; however, we use service providers (e.g., email/IT service providers) as processors pursuant to Art. 28 GDPR for technical processing. The legal basis for processing your data is Art. 6(1)(b) GDPR (pre-contractual measures) or Art. 6(1)(f) GDPR (legitimate interest, e.g., responding to your inquiry), and Art. 6(1)(c) GDPR if statutory retention obligations apply (e.g., Section 257 of the German Commercial Code (HGB), Section 147 of the German Fiscal Code (AO)). If processing is based on Art. 6(1)(f) GDPR, you have the right to object at any time on grounds relating to your particular situation (Art. 21 GDPR). We delete your inquiry once it has been resolved, but no later than 12 months thereafter, unless statutory retention obligations prevent deletion. If correspondence becomes part of business records, commercial and tax retention periods apply (generally up to 6 years pursuant to Section 257 HGB or up to 10 years pursuant to Section 147 AO). Technical log data is generally deleted after 30 days at the latest; longer storage only occurs on an ad hoc basis, e.g., to investigate security incidents. Please note that communication via unencrypted email may involve security risks. Information sent to us unencrypted by email may be read by third parties during transmission. Therefore, please do not send particularly sensitive information unencrypted by email. Upon request, we can provide secure communication channels.</p>
+
+                <h4>7. Application Process (Recruiting)</h4>
+                <p>If you apply for a position at MIMIR, we process the application data you provide (e.g., master and contact data, CV, certificates, communication content) for the purpose of assessing your suitability and conducting the application process, as well as for establishing a potential employment relationship. Access internally is limited to those involved in the recruitment process. The legal basis is Section 26(1) of the German Federal Data Protection Act (BDSG) (establishment of an employment relationship) in conjunction with Art. 6(1)(b) GDPR. After completion of the process, we store rejected applications for up to 6 months on the basis of Art. 6(1)(f) GDPR (including for defense against potential claims, e.g., under the General Equal Treatment Act (AGG)). At your request, we will delete the data earlier, provided no statutory obligations or legitimate interests prevent this. Please do not transmit special categories of personal data within the meaning of Art. 9 GDPR (e.g., health data), unless this is exceptionally required by law; in such cases, we process this data based on the applicable exceptions (e.g., Art. 9(2)(b), (h) GDPR in conjunction with Section 22 of the BDSG). We do not carry out automated decision-making, including profiling, within the meaning of Art. 22 GDPR.</p>
+
+                <h4>8. Recipients of Personal Data</h4>
+                <p>Your personal data will generally not be transferred to third parties unless: you have given your explicit consent (Art. 6(1)(a) GDPR); the transfer is necessary for the establishment, exercise, or defense of legal claims (Art. 6(1)(f) GDPR); the transfer is required by law (Art. 6(1)(c) GDPR); the transfer takes place within the framework of a contractual relationship (Art. 6(1)(b) GDPR). We work with carefully selected service providers, e.g., for email dispatch. These service providers are contractually obligated to comply with data protection requirements and are regularly monitored.</p>
+
+                <h4>9. Your Rights</h4>
+                <p>As a data subject, you have the following rights: right to information (Art. 15 GDPR), right to rectification (Art. 16 GDPR), right to erasure and restriction of processing (Arts. 17, 18 GDPR), right to object (Art. 21 GDPR), right to data portability (Art. 20 GDPR), right to withdraw consent at any time, and right to lodge a complaint with a supervisory authority (Art. 77 GDPR). The competent authority is: The State Commissioner for Data Protection and Freedom of Information Baden-Württemberg (LfDI BW), Postal address: PO Box 10 29 32, 70025 Stuttgart, Phone: +49 711 61 55 41-0, Email: <a href="mailto:poststelle@lfdi.bwl.de">poststelle@lfdi.bwl.de</a>, Web: <a href="https://www.baden-wuerttemberg.datenschutz.de" target="_blank">https://www.baden-wuerttemberg.datenschutz.de</a>. If you exercise any of the above rights, we will examine whether the legal requirements are met.</p>
+
+                <h4>10. Security Measures</h4>
+                <p>We have implemented extensive technical and organisational measures (TOMs) to protect your data against unauthorized access, loss, or misuse.</p>
+
+                <h4>11. Changes to this Privacy Notice</h4>
+                <p>We reserve the right to update this Privacy Notice in order to adapt it to legal changes or further developments of our services. The current version will be published on this website.</p>
+
+                <h4>12. Contact</h4>
+                <p>For questions, concerns, or to exercise your rights, please contact: MIMIR GmbH, Eichenweg 4, 72076 Tübingen, Email: <a href="mailto:contact@mimir.fit">contact@mimir.fit</a>.</p>
+
+                <hr>
+
+                <!-- German version -->
+                <h3>Datenschutzerklärung – Stand: 20.02.2026</h3>
+                <h4>1. Verantwortlicher für die Datenverarbeitung</h4>
+                <p>MIMIR GmbH<br>Eichenweg 4<br>72076 Tübingen<br>E-Mail: <a href="mailto:contact@mimir.fit">contact@mimir.fit</a><br>MIMIR GmbH (nachfolgend "MIMIR"; „wir“) ist als Verantwortlicher gemäß Art. 4 Nr. 7 DSGVO für die Verarbeitung Ihrer personenbezogenen Daten zuständig, soweit diese im Rahmen wirtschaftlichen Handelns erhoben werden.</p>
+
+                <h4>2. Allgemeines</h4>
+                <p>Wir freuen uns über Ihren Besuch auf unserer Website. Der Schutz Ihrer Privatsphäre und der Schutz Ihrer persönlichen Daten, der sog. personenbezogenen Daten, bei der Nutzung unserer Website ist uns ein wichtiges Anliegen. Wir möchten, dass Sie sich bei der Nutzung unserer Website sicher fühlen. Diese Website‑Datenschutzhinweise betreffen ausschließlich Verarbeitungen, für die wir selbst Verantwortlicher sind. Verarbeitungen im Rahmen unserer Leistungen für Kunden (z. B. Evaluierung von KI‑Agenten) sind nicht Gegenstand dieser Hinweise; hierfür gelten gesonderte vertragliche und datenschutzrechtliche Regelungen (z. B. Auftragsverarbeitungsvertrag, im Folgenden “AVV”).</p>
+
+                <h4>3. Nutzung der Website</h4>
+                <p>Die Nutzung unserer Website ist grundsätzlich ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten erhoben werden, erfolgt dies stets auf freiwilliger Basis. Ihre Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben.</p>
+
+                <h4>4. Zugriffsdaten</h4>
+                <p>Beim Besuch unserer Website werden technisch notwendige Daten über Ihren Internetbrowser an unseren Webserver übermittelt und können temporär gespeichert werden. Diese sind u.a. besuchte Website, Uhrzeit und Datum des Zugriffs, Menge der gesendeten Daten in Byte, Quelle/Verweis, von dem Sie auf die Seite gelangt sind, verwendeter Browser, verwendetes Betriebssystem, verwendete IP-Adresse. Diese Daten werden erhoben, um die Website stabil und sicher zu betreiben, die Website an die Bedürfnisse der Nutzer anzupassen und die Systemsicherheit zu gewährleisten. Hosting und technischer Betrieb der Website erfolgen durch Hetzner Online GmbH, Industriestr. 25, 91710 Gunzenhausen. Mit dem Anbieter besteht ein AVV gemäß Art. 28 DSGVO. Die Rechtsgrundlage hierfür ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse). Die Daten werden nach spätestens 7 Tagen anonymisiert und nicht mit anderen personenbezogenen Daten kombiniert. Eine darüber hinausgehende Speicherung der Logdaten erfolgt nur anlassbezogen, etwa zur Aufklärung von Sicherheitsvorfällen, und wird nach Zweckerreichung gelöscht.</p>
+
+                <h4>5. Cookies und Plug-Ins</h4>
+                <p>Wir setzen derzeit keine Cookies und keine vergleichbaren Technologien (z. B. Tracking‑/Analyse‑Tools) ein und binden keine externen Inhalte ein, bei denen beim Aufruf automatisch Daten an Dritte übermittelt werden (z. B. externe Webfonts, Karten, Videoplayer). Sollten wir künftig Cookies oder vergleichbare Technologien nutzen, informieren wir Sie vorab und holen, sofern gesetzlich erforderlich, Ihre Einwilligung ein.</p>
+
+                <h4>6. Kontaktaufnahme (E-Mail)</h4>
+                <p>Wenn Sie uns per E‑Mail kontaktieren, verarbeiten wir die von Ihnen mitgeteilten Daten (z. B. Name, E‑Mail‑Adresse, Telefonnummer und Inhalte der Nachricht) zur Bearbeitung Ihrer Anfrage. Eine Weitergabe an externe Stellen erfolgt nicht; im Rahmen der technischen Abwicklung setzen wir jedoch Dienstleister (z. B. E‑Mail‑/IT‑Dienstleister) als Auftragsverarbeiter nach Art. 28 DSGVO ein. Die Rechtsgrundlage für die Verarbeitung Ihrer Daten ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) oder Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse, z. B. zur Beantwortung Ihrer Anfrage) sowie Art. 6 Abs. 1 lit. c DSGVO, sofern gesetzliche Aufbewahrungspflichten bestehen (z. B. § 257 HGB, § 147 AO). Soweit wir die Verarbeitung auf Art. 6 Abs. 1 lit. f DSGVO stützen, können Sie der Verarbeitung jederzeit aus Gründen, die sich aus Ihrer besonderen Situation ergeben, widersprechen (Art. 21 DSGVO). Wir löschen Ihre Anfrage, sobald sie abgeschlossen ist, spätestens jedoch nach 12 Monaten, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen. Wird die Korrespondenz Teil geschäftlicher Unterlagen, gelten die handels‑/steuerrechtlichen Fristen (in der Regel bis zu 6 Jahren nach § 257 HGB bzw. bis zu 10 Jahren nach § 147 AO). Technische Protokolldaten werden in der Regel spätestens nach 30 Tagen gelöscht; eine längere Speicherung erfolgt nur anlassbezogen, z. B. zur Aufklärung von Sicherheitsvorfällen. Wir bitten Sie zu beachten, dass eine rechtssichere Kommunikation durch eine einfache E‑Mail nicht gewährleistet ist. Informationen, die Sie unverschlüsselt per E‑Mail an uns senden, können möglicherweise auf dem Übertragungsweg von Dritten gelesen werden. Senden Sie daher keine besonders sensiblen Informationen unverschlüsselt per E‑Mail. Auf Anfrage können wir sichere Kommunikationswege bereitstellen.</p>
+
+                <h4>7. Bewerbungsverfahren (Recruiting)</h4>
+                <p>Wenn Sie sich für eine Stelle bei MIMIR bewerben, verarbeiten wir die von Ihnen bereitgestellten Bewerbungsdaten (z. B. Stamm‑ und Kontaktdaten, Lebenslauf, Zeugnisse, Kommunikationsinhalte) zum Zweck der Beurteilung Ihrer Eignung und zur Durchführung des Bewerbungsverfahrens sowie zur Begründung eines möglichen Beschäftigungsverhältnisses. Intern erhalten nur die mit dem Verfahren betrauten Stellen Zugriff. Rechtsgrundlage bildet § 26 Abs. 1 BDSG (Begründung eines Beschäftigungsverhältnisses) und ergänzend Art. 6 Abs. 1 lit. b DSGVO. Nach Abschluss des Verfahrens speichern wir abgelehnte Bewerbungen bis zu 6 Monate auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (u. a. zur Verteidigung gegen etwaige Ansprüche, z. B. nach dem AGG). Auf Ihren Wunsch löschen wir Daten auch früher, soweit keine gesetzlichen Pflichten oder berechtigten Interessen entgegenstehen. Bitte übermitteln Sie uns keine besonderen Kategorien personenbezogener Daten im Sinne von Art. 9 DSGVO (z. B. Gesundheitsdaten), es sei denn, dies ist ausnahmsweise rechtlich erforderlich; in solchen Fällen verarbeiten wir diese Daten auf Grundlage der einschlägigen Ausnahmetatbestände (z. B. Art. 9 Abs. 2 lit. b, h DSGVO i. V. m. § 22 BDSG). Es findet keine automatisierte Entscheidungsfindung einschließlich Profiling gem. Art. 22 DSGVO statt.</p>
+
+                <h4>8. Empfänger von personenbezogenen Daten</h4>
+                <p>Ihre personenbezogenen Daten werden grundsätzlich nicht an Dritte weitergegeben, es sei denn: Sie haben Ihre ausdrückliche Einwilligung erteilt (Art. 6 Abs. 1 lit. a DSGVO); die Weitergabe ist zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen erforderlich (Art. 6 Abs. 1 lit. f DSGVO); die Weitergabe ist gesetzlich vorgeschrieben (Art. 6 Abs. 1 lit. c DSGVO); die Weitergabe erfolgt im Rahmen eines Vertragsverhältnisses (Art. 6 Abs. 1 lit. b DSGVO). Wir arbeiten mit sorgfältig ausgewählten Dienstleistern zusammen, z.B. für E-Mail-Versand. Diese Dienstleister sind vertraglich zur Einhaltung des Datenschutzes verpflichtet und werden regelmäßig kontrolliert.</p>
+
+                <h4>9. Betroffenenrechte</h4>
+                <p>Als Betroffene einer Datenverarbeitung stehen Ihnen folgende Rechte zu: Recht auf Auskunft (Art. 15 DSGVO), Recht auf Berichtigung (Art. 16 DSGVO), Recht auf Löschung und Einschränkung der Verarbeitung (Art. 17, 18 DSGVO), Widerspruchsrecht (Art. 21 DSGVO), Recht auf Datenübertragbarkeit (Art. 20 DSGVO), Recht auf Widerruf einer Einwilligung, sowie ein Beschwerderecht bei der Aufsichtsbehörde (Art. 77 DSGVO). Die zuständige Aufsichtsbehörde ist: Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg (LfDI BW), Postanschrift: Postfach 10 29 32, 70025 Stuttgart, Telefon: 0711/61 55 41-0, E-Mail: <a href="mailto:poststelle@lfdi.bwl.de">poststelle@lfdi.bwl.de</a>, Web: <a href="https://www.baden-wuerttemberg.datenschutz.de" target="_blank">https://www.baden-wuerttemberg.datenschutz.de</a>. Sollten Sie von Ihren oben genannten Rechten Gebrauch machen, werden wir prüfen, ob die gesetzlichen Voraussetzungen hierfür erfüllt sind.</p>
+
+                <h4>10. Sicherheitsmaßnahmen</h4>
+                <p>Wir haben umfangreiche technische und organisatorische Maßnahmen (TOMs) ergriffen, um Ihre Daten vor unbefugtem Zugriff, Verlust oder Missbrauch zu schützen.</p>
+
+                <h4>11. Änderungen dieser Datenschutzerklärung</h4>
+                <p>Wir behalten uns vor, diese Datenschutzerklärung zu aktualisieren, um sie an gesetzliche Änderungen oder Weiterentwicklungen unserer Dienstleistungen anzupassen. Die jeweils aktuelle Version wird auf dieser Website veröffentlicht.</p>
+
+                <h4>12. Kontakt</h4>
+                <p>Für Fragen, Anliegen oder die Ausübung Ihrer Rechte wenden Sie sich bitte an: MIMIR GmbH, Eichenweg 4, 72076 Tübingen, E-Mail: <a href="mailto:contact@mimir.fit">contact@mimir.fit</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>MIMIR</h3>
+                    <p>Making intelligent AI choices accessible to everyone</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="../index.html#products"><i class="fas fa-chevron-right"></i> MIMIR.PREDICTOR</a></li>
+                        <li><a href="../index.html#products"><i class="fas fa-chevron-right"></i> MIMIR.ROUTER</a></li>
+                        <li><a href="../index.html#products"><i class="fas fa-chevron-right"></i> MIMIR.EVALUATIONS</a></li>
+                        <li><a href="../index.html#products"><i class="fas fa-chevron-right"></i> MIMIR.DATASETS</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="../index.html#vision"><i class="fas fa-chevron-right"></i> Vision</a></li>
+                        <li><a href="../index.html#why-know-agents"><i class="fas fa-chevron-right"></i> Know Your AI</a></li>
+                        <li><a href="../index.html#timeline"><i class="fas fa-chevron-right"></i> Timeline</a></li>
+                        <li><a href="../index.html#faq"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                        <li><a href="../index.html#jobs"><i class="fas fa-chevron-right"></i> Jobs</a></li>
+                        <li><a href="../index.html#legal"><i class="fas fa-chevron-right"></i> Legal Notice</a></li>
+                        <li><a href="privacy.html"><i class="fas fa-chevron-right"></i> Privacy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="mailto:contact@mimir.fit"><i class="fas fa-envelope"></i> contact@mimir.fit</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Tübingen, Germany</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 MIMIR GmbH. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('active');
+            this.innerHTML = this.innerHTML === '☰' ? '✕' : '☰';
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.getElementById('menuToggle');
+            if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
+                navLinks.classList.remove('active');
+                menuToggle.innerHTML = '☰';
+            }
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+                document.getElementById('menuToggle').innerHTML = '☰';
+            });
+        });
+    </script>
+</body>
+</html>

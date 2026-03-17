@@ -1,0 +1,81 @@
+#!/usr/bin/env bash
+
+# MIMIR local asset downloader
+# Run this from the project root (where index.html is located)
+
+set -e  # exit on error
+
+echo "=== Setting up local assets for MIMIR (no external font requests) ==="
+
+# Create required directories
+mkdir -p fonts css webfonts
+
+# ----------------------------------------------------------------------
+# 1. Font Awesome (self‑hosted)
+# ----------------------------------------------------------------------
+FA_VERSION="6.4.0"
+FA_ZIP="fontawesome-free-${FA_VERSION}-web.zip"
+FA_URL="https://use.fontawesome.com/releases/v${FA_VERSION}/${FA_ZIP}"
+
+if [ ! -f "$FA_ZIP" ]; then
+    echo "Downloading Font Awesome ${FA_VERSION}..."
+    curl -L -o "$FA_ZIP" "$FA_URL"
+else
+    echo "Font Awesome zip already exists, skipping download."
+fi
+
+echo "Extracting Font Awesome CSS and webfonts..."
+unzip -o -q "$FA_ZIP" -d fontawesome-tmp
+
+# Copy the minified CSS and all webfonts
+cp fontawesome-tmp/css/fontawesome.min.css css/
+cp fontawesome-tmp/webfonts/* webfonts/ 2>/dev/null || true
+
+# Clean up
+rm -rf fontawesome-tmp
+echo "Font Awesome placed in css/ and webfonts/"
+
+# ----------------------------------------------------------------------
+# 2. Google Fonts (variable WOFF2)
+# ----------------------------------------------------------------------
+echo "Downloading variable fonts from Google Fonts..."
+
+# Helper: fetch CSS and extract the first .woff2 URL
+fetch_font() {
+    local family="$1"
+    local css_url="$2"
+    local output_name="$3"
+
+    echo "  Fetching $family ..."
+    # Get the CSS, follow redirects, use a modern browser user‑agent to receive WOFF2
+    css=$(curl -s -L -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" "$css_url")
+
+    # Extract the first src: url(...) that ends with .woff2
+    font_url=$(echo "$css" | grep -oE 'src: url\(["'\'']?https://fonts\.gstatic\.com[^)]+\.woff2' | head -1 | sed -E 's/src: url\(["'\'']?//; s/["'\'']?$//')
+
+    if [ -z "$font_url" ]; then
+        echo "    ERROR: Could not extract font URL for $family"
+        return 1
+    fi
+
+    echo "    Downloading $output_name ..."
+    curl -L -o "fonts/$output_name" "$font_url"
+}
+
+# Inter – variable weight 300..700
+fetch_font "Inter" \
+    "https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap" \
+    "inter-variable.woff2"
+
+# Montserrat – variable weight 400..800
+fetch_font "Montserrat" \
+    "https://fonts.googleapis.com/css2?family=Montserrat:wght@400..800&display=swap" \
+    "montserrat-variable.woff2"
+
+# Source Sans Pro – variable weight 300..700
+fetch_font "Source Sans Pro" \
+    "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300..700&display=swap" \
+    "source-sans-pro-variable.woff2"
+
+echo "=== All assets downloaded successfully ==="
+echo "Now your privacy.html (in documents/) will use local fonts and icons."

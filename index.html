@@ -4,13 +4,157 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MIMIR - Intelligent AI Agent Routing & Evaluation</title>
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Self‑hosted Font Awesome -->
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <style>
+        /* ----- Self‑hosted fonts (static weights, same as original) ----- */
+        /* Font Awesome */
+        @font-face {
+            font-family: 'Font Awesome 6 Free';
+            font-style: normal;
+            font-weight: 900;
+            font-display: block;
+            src: url('webfonts/fa-solid-900.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Font Awesome 6 Free';
+            font-style: normal;
+            font-weight: 400;
+            font-display: block;
+            src: url('webfonts/fa-regular-400.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Font Awesome 6 Brands';
+            font-style: normal;
+            font-weight: 400;
+            font-display: block;
+            src: url('webfonts/fa-brands-400.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Font Awesome 6 Free';
+            font-style: normal;
+            font-weight: 400;
+            font-display: block;
+            src: url('webfonts/fa-v4compatibility.woff2') format('woff2');
+        }
+
+        /* Inter – static weights */
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 300;
+            font-display: swap;
+            src: url('fonts/inter-300.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('fonts/inter-400.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url('fonts/inter-500.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url('fonts/inter-600.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('fonts/inter-700.woff2') format('woff2');
+        }
+
+        /* Montserrat – static weights */
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('fonts/montserrat-400.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url('fonts/montserrat-500.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url('fonts/montserrat-600.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('fonts/montserrat-700.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 800;
+            font-display: swap;
+            src: url('fonts/montserrat-800.woff2') format('woff2');
+        }
+
+        /* Source Sans Pro – static weights */
+        @font-face {
+            font-family: 'Source Sans Pro';
+            font-style: normal;
+            font-weight: 300;
+            font-display: swap;
+            src: url('fonts/source-sans-300.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Source Sans Pro';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('fonts/source-sans-400.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Source Sans Pro';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url('fonts/source-sans-600.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Source Sans Pro';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('fonts/source-sans-700.woff2') format('woff2');
+        }
+
+        /* Force solid icons to use the correct font */
+        .fa-solid, .fas {
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            display: inline-block;
+            font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+        }
+
+
         /* CSS Variables with improved color scheme */
         :root {
             --primary: #FFFFFF;
@@ -1255,7 +1399,7 @@
             <nav>
                 <a href="#" class="logo">
                     <div class="logo-image">
-                        <img src="TE_logo_0.png" alt="MIMIR Logo">
+                        <img src="MIMIR_logo.png" alt="MIMIR Logo">
                     </div>
                     <div class="logo-text">MIMIR</div>
                 </a>
@@ -1361,7 +1505,7 @@
                 <span class="highlight">Evidence-based routing is enabled by our composition of state-of-the-art AI benchmarking tools, completed with handcrafted evals for your specific needs.</span> Thus, MIMIR ensures that your AI systems are compliant, reliable, and effective. We're pioneering the future of AI orchestration with our four core products: MIMIR.PREDICTOR, MIMIR.ROUTER, MIMIR.DATASETS, and MIMIR.EVALUATIONS.
             </p>
             <div style="text-align: center; margin-top: 2.5rem;">
-                <img src="TE_logo_0.png" alt="MIMIR Logo" style="width: clamp(160px, 36%, 320px); height: auto; opacity: 0.85;">
+                <img src="MIMIR_logo.png" alt="MIMIR Logo" style="width: clamp(160px, 36%, 320px); height: auto; opacity: 0.85;">
             </div>
         </div>
     </section>
@@ -2011,6 +2155,12 @@
                     VAT identification number pursuant to §27 a German Value Added Tax Act (UStG):<br>
                     DE460159090
                 </p>
+
+                <h3>Privacy Policy</h3>
+                <p>
+                    Information on how we handle personal data can be found in our
+                    <a href="documents/privacy.html">Privacy Policy</a>.
+                </p>
             </div>
         </div>
     </section>
@@ -2042,6 +2192,7 @@
                         <li><a href="#faq"><i class="fas fa-chevron-right"></i> FAQ</a></li>
                         <li><a href="#jobs"><i class="fas fa-chevron-right"></i> Jobs</a></li>
                         <li><a href="#legal"><i class="fas fa-chevron-right"></i> Legal Notice</a></li>
+                        <li><a href="documents/privacy.html"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -2059,7 +2210,7 @@
     </footer>
     
     <!-- JavaScript -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Mobile menu toggle
         document.getElementById('menuToggle').addEventListener('click', function() {
             document.getElementById('navLinks').classList.toggle('active');
@@ -2103,13 +2254,6 @@
                 }
             });
         });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'st
+    </script>
+</body>
+</html>
