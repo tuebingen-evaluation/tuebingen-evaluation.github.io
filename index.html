@@ -175,6 +175,11 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-padding-top: 80px;
         }
         
         body {
@@ -184,6 +189,12 @@
             background: var(--gradient);
             background-attachment: fixed;
             font-weight: 400;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
         }
         
         h1, h2, h3, h4, h5 {
@@ -454,7 +465,7 @@
         
         .vision-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
             gap: 2rem;
             margin-top: 3rem;
             position: relative;
@@ -527,7 +538,7 @@
         
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
@@ -646,7 +657,7 @@
         
         .product-features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
             gap: 1.5rem;
             margin-top: 2.5rem;
         }
@@ -786,7 +797,7 @@
         
         .steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
             gap: 2.5rem;
             margin-top: 3rem;
         }
@@ -838,7 +849,7 @@
         
         .use-case-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
             gap: 2.5rem;
             margin-top: 3rem;
         }
@@ -1030,7 +1041,7 @@
         
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
             gap: 2.5rem;
             margin-bottom: 2.5rem;
         }
@@ -1087,131 +1098,311 @@
         }
         
         @media (max-width: 768px) {
+            html {
+                scroll-padding-top: 70px;
+            }
+
             .menu-toggle {
-                display: block;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 background: none;
-                border: none;
+                border: 2px solid rgba(255,255,255,0.3);
+                border-radius: 8px;
                 color: white;
-                font-size: 1.8rem;
+                font-size: 1.5rem;
+                width: 44px;
+                height: 44px;
                 cursor: pointer;
                 z-index: 1001;
+                transition: border-color 0.3s;
             }
-            
+
+            .menu-toggle:hover,
+            .menu-toggle:focus {
+                border-color: var(--accent-light);
+                outline: none;
+            }
+
             .nav-links {
                 display: none;
-                position: fixed;
-                top: 0;
+                position: absolute;
+                top: 100%;
                 left: 0;
                 right: 0;
-                bottom: 0;
-                background: rgba(0,0,0,0.98);
-                flex-direction: column;
-                padding: 6rem 2rem 2rem;
-                gap: 1.5rem;
+                background: rgba(0,0,0,0.97);
+                backdrop-filter: blur(15px);
+                padding: 1rem 5%;
+                gap: 0;
                 z-index: 1000;
-                overflow-y: auto;
+                border-top: 1px solid rgba(187, 0, 187, 0.2);
+                border-bottom: 1px solid rgba(187, 0, 187, 0.2);
+                box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+                flex-wrap: wrap;
             }
-            
+
             .nav-links.active {
-                display: flex;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
             }
-            
+
             .nav-links a {
-                font-size: 1.2rem;
-                padding: 1rem;
-                border-bottom: 1px solid rgba(255,255,255,0.1);
+                font-size: 0.92rem;
+                padding: 0.7rem 0.8rem;
+                border-radius: 6px;
+                white-space: nowrap;
             }
-            
+
+            .nav-links a:hover,
+            .nav-links a:active {
+                background: rgba(187, 0, 187, 0.15);
+            }
+
+            .nav-links a::after {
+                display: none;
+            }
+
+            nav {
+                position: relative;
+            }
+
+            /* Reduce section padding */
+            section {
+                padding: 3rem 0;
+                margin-bottom: 1rem;
+            }
+
             .hero {
-                padding: 6rem 0 4rem;
+                padding: 4rem 0 3rem;
             }
-            
+
             .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero .tagline {
-                font-size: 1.2rem;
-            }
-            
-            h2 {
                 font-size: 2.2rem;
             }
-            
+
+            .hero .tagline {
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 0.95rem;
+                margin-bottom: 2rem;
+            }
+
+            h2 {
+                font-size: 1.9rem;
+            }
+
+            .section-intro {
+                font-size: 1.05rem;
+                margin: 1.5rem auto 2rem;
+            }
+
+            /* Section cards: tighten horizontal space */
+            .vision, .why-know-agents, .products, .timeline,
+            .how-it-works, .use-cases, .faq, .contact,
+            .legal-notice, .jobs, .ai-routing-intro {
+                margin-left: 0;
+                margin-right: 0;
+                border-radius: 12px;
+            }
+
             .timeline-container::before {
                 left: 20px;
             }
-            
+
             .timeline-item {
                 width: 100%;
-                padding-left: 60px !important;
+                padding-left: 50px !important;
                 padding-right: 0 !important;
                 left: 0 !important;
             }
-            
+
             .timeline-item::after {
                 left: 8px !important;
             }
-            
+
+            .timeline-content {
+                padding: 1.5rem;
+            }
+
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
                 gap: 1rem;
             }
-            
+
             .btn {
                 width: 100%;
-                max-width: 300px;
+                max-width: 320px;
                 text-align: center;
+                padding: 1rem 1.5rem;
             }
 
             .product-header {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 1rem;
+                gap: 0.8rem;
             }
-            
+
+            .product-card h3 {
+                font-size: 1.6rem;
+            }
+
             .features {
                 grid-template-columns: 1fr;
             }
-            
+
             .vision-content, .use-case-grid, .product-features {
                 grid-template-columns: 1fr;
             }
-            
+
+            .jobs-grid {
+                grid-template-columns: 1fr;
+            }
+
             .steps {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
-            
+
             .legal-content {
-                padding: 2rem;
+                padding: 1.5rem;
             }
-            
+
             .product-card {
-                padding: 2.5rem 1.5rem;
+                padding: 2rem 1.5rem;
             }
-            
+
+            .feature-item {
+                padding: 1.2rem;
+            }
+
+            /* FAQ: bigger touch targets */
+            .faq-question {
+                padding: 1.4rem 1.2rem;
+                font-size: 0.95rem;
+                min-height: 48px;
+            }
+
+            .faq-answer.show {
+                padding: 0 1.2rem 1.5rem;
+            }
+
+            /* AI routing intro */
+            .ai-routing-intro {
+                padding: 2.5rem 1rem;
+            }
+
+            .ai-routing-intro .section-intro {
+                font-size: 1.05rem;
+                padding: 1.5rem;
+            }
+
+            /* Jobs */
+            .jobs-contact-box {
+                padding: 1.5rem 1rem;
+            }
+
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
+
+            .container {
+                width: 92%;
+            }
         }
         
         @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2.2rem;
+            .container {
+                width: 94%;
             }
-            
-            h2 {
+
+            .hero {
+                padding: 3rem 0 2rem;
+            }
+
+            .hero h1 {
                 font-size: 1.8rem;
             }
-            
-            .btn {
-                padding: 1rem 1.5rem;
+
+            .hero .tagline {
+                font-size: 1rem;
             }
-            
+
+            .hero .subtitle {
+                font-size: 0.9rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            section {
+                padding: 2.5rem 0;
+            }
+
+            .btn {
+                padding: 0.9rem 1.2rem;
+                font-size: 0.95rem;
+            }
+
             .section-intro {
+                font-size: 1rem;
+            }
+
+            .product-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .product-card {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .vision-card {
+                padding: 1.5rem;
+            }
+
+            .step {
+                padding: 2rem 1.5rem;
+            }
+
+            .use-case-card {
+                padding: 1.5rem;
+            }
+
+            .feature-card {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .timeline-content {
+                padding: 1.2rem;
+            }
+
+            .timeline-item {
+                padding-left: 42px !important;
+            }
+
+            .job-card {
+                padding: 1.5rem;
+            }
+
+            .legal-content {
+                padding: 1.2rem;
+            }
+
+            .logo-image {
+                width: 80px;
+                height: 32px;
+            }
+
+            .logo-text {
+                font-size: 1.4rem;
+            }
+
+            .footer-column h3 {
                 font-size: 1.1rem;
             }
         }
@@ -1235,7 +1426,7 @@
 
         .jobs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
             gap: 1.8rem;
             margin-top: 2rem;
         }
