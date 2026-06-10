@@ -1,0 +1,243 @@
+/* ============================================================
+   MIMIR DESIGN SYSTEM — Colors & Type
+   ============================================================
+   Single source of truth for MIMIR colors, fonts, and semantic
+   text styles. Import this into any prototype, slide, or UI kit:
+
+       <link rel="stylesheet" href="/colors_and_type.css">
+
+   Colors pulled from the router-chat demo (the most mature
+   surface) and cross-checked against the mimir.fit marketing
+   site and the Marp investor deck theme.
+   ============================================================ */
+
+
+/* ------- Web fonts (self-hosted, from UI_MIMIR) ------- */
+
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 300; font-display: swap; src: url('fonts/inter-300.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/inter-400.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url('fonts/inter-500.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url('fonts/inter-600.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 700; font-display: swap; src: url('fonts/inter-700.woff2') format('woff2'); }
+
+@font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/montserrat-400.woff2') format('woff2'); }
+@font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 500; font-display: swap; src: url('fonts/montserrat-500.woff2') format('woff2'); }
+@font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 600; font-display: swap; src: url('fonts/montserrat-600.woff2') format('woff2'); }
+@font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 700; font-display: swap; src: url('fonts/montserrat-700.woff2') format('woff2'); }
+@font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 800; font-display: swap; src: url('fonts/montserrat-800.woff2') format('woff2'); }
+
+@font-face { font-family: 'Source Sans Pro'; font-style: normal; font-weight: 300; font-display: swap; src: url('fonts/source-sans-300.woff2') format('woff2'); }
+@font-face { font-family: 'Source Sans Pro'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/source-sans-400.woff2') format('woff2'); }
+@font-face { font-family: 'Source Sans Pro'; font-style: normal; font-weight: 600; font-display: swap; src: url('fonts/source-sans-600.woff2') format('woff2'); }
+@font-face { font-family: 'Source Sans Pro'; font-style: normal; font-weight: 700; font-display: swap; src: url('fonts/source-sans-700.woff2') format('woff2'); }
+
+
+:root {
+  /* ============================================================
+     COLORS
+     ============================================================ */
+
+  /* ---- Core neutrals (backgrounds) ---- */
+  --mimir-bg:            #08080C;   /* page background */
+  --mimir-bg-elevated:   #111118;   /* cards/panels */
+  --mimir-bg-deep:       #0C0C14;   /* nested surfaces */
+  --mimir-card:          rgba(12, 12, 20, 0.55);     /* glass panels */
+  --mimir-card-solid:    rgba(10, 10, 14, 0.96);     /* opaque panels */
+
+  /* ---- Brand hues ---- */
+  --mimir-orange:        #E8773A;   /* primary brand accent (router-chat) */
+  --mimir-orange-soft:   #D4956A;   /* warm subdued */
+  --mimir-orange-mkt:    #FF6600;   /* marketing/web variant */
+  --mimir-purple:        #BB00BB;   /* CANONICAL brand accent — magenta-purple */
+  --mimir-purple-light:  #DD44DD;   /* hover / links */
+  --mimir-purple-deep:   #4A148C;   /* gradient anchor */
+  --mimir-magenta:       #E91E8C;   /* slide theme strong-emphasis — softer than the accent */
+
+  /* ---- Text ---- */
+  --mimir-fg:            #F0F0F5;                    /* pure text on dark */
+  --mimir-fg1:           rgba(240, 240, 245, 0.92);  /* body primary */
+  --mimir-fg2:           rgba(240, 240, 245, 0.55);  /* body secondary */
+  --mimir-fg3:           rgba(240, 240, 245, 0.35);  /* muted / meta */
+  --mimir-fg-bright:     #FFFFFF;
+
+  /* ---- Semantic / status ---- */
+  --mimir-success:       #34D399;
+  --mimir-warning:       #FBBF24;
+  --mimir-danger:        #F87171;
+  --mimir-info:          #38BDF8;
+
+  /* ---- Borders ---- */
+  --mimir-border-subtle: rgba(255, 255, 255, 0.06);
+  --mimir-border-accent: rgba(187,0,187, 0.15);   /* purple-tinted */
+  --mimir-border-hover:  rgba(187,0,187, 0.35);
+
+  /* ---- Signature gradients ---- */
+  --mimir-bg-gradient:        radial-gradient(ellipse at 70% 20%, rgba(88, 28, 135, 0.35) 0%, rgba(12, 12, 20, 1) 65%);
+  --mimir-bg-gradient-soft:   radial-gradient(ellipse at 70% 20%, rgba(88, 28, 135, 0.20) 0%, rgba(12, 12, 20, 1) 70%);
+  --mimir-gradient-title:     linear-gradient(135deg, #E91E8C, #E8773A);   /* @kind color */ /* magenta to orange, hero H1 + title slides */
+  --mimir-gradient-section:   linear-gradient(135deg, #BB00BB, #E91E8C);   /* @kind color */ /* purple to magenta, section breaks */
+  --mimir-gradient-orange:    linear-gradient(135deg, #E8773A, #FF8533);   /* @kind color */ /* primary button */
+  --mimir-gradient-marketing: linear-gradient(to right, #FFFFFF, #FFB347); /* @kind color */ /* hero ink on mimir.fit */
+
+  /* ============================================================
+     TYPOGRAPHY
+     ============================================================ */
+  --mimir-font-body:     'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mimir-font-display:  'Montserrat', 'Inter', sans-serif;
+  --mimir-font-tagline:  'Source Sans Pro', 'Inter', sans-serif;  /* light, airy — reserved for large marketing taglines */
+  --mimir-font-mono:     ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  /* ---- Size scale (product UI, 14.5px body) ---- */
+  --mimir-fs-xxs:   0.65rem;   /* 10.4px — stats, micro-meta */
+  --mimir-fs-xs:    0.72rem;   /* 11.5px — details, labels */
+  --mimir-fs-sm:    0.82rem;   /* 13px — secondary body */
+  --mimir-fs-base:  0.92rem;   /* 14.7px — message body */
+  --mimir-fs-md:    1rem;      /* 16px */
+  --mimir-fs-lg:    1.2rem;
+  --mimir-fs-xl:    1.5rem;
+  --mimir-fs-2xl:   2rem;
+  --mimir-fs-3xl:   2.6rem;    /* hero */
+
+  /* ---- Weights ---- */
+  --mimir-fw-light:    300; /* @kind font */
+  --mimir-fw-regular:  400; /* @kind font */
+  --mimir-fw-medium:   500; /* @kind font */
+  --mimir-fw-semibold: 600; /* @kind font */
+  --mimir-fw-bold:     700; /* @kind font */
+  --mimir-fw-black:    800; /* @kind font */
+
+  /* ---- Letter spacing ---- */
+  --mimir-track-tight:  -0.02em;   /* @kind spacing */ /* large display */
+  --mimir-track-body:    0.01em;   /* @kind spacing */ /* base */
+  --mimir-track-label:   0.08em;   /* @kind spacing */ /* uppercase nav/header labels */
+  --mimir-track-micro:   1.2px;    /* @kind spacing */ /* tiny uppercase sub-labels */
+
+  /* ============================================================
+     SPACING, RADII, SHADOWS
+     ============================================================ */
+  --mimir-radius-xs: 3px;
+  --mimir-radius-sm: 6px;
+  --mimir-radius:    8px;
+  --mimir-radius-lg: 12px;
+  --mimir-radius-xl: 14px;       /* message bubbles, input */
+  --mimir-radius-pill: 999px;
+
+  --mimir-shadow-sm:   0 2px 6px rgba(0, 0, 0, 0.3);
+  --mimir-shadow:      0 4px 20px rgba(0, 0, 0, 0.4);
+  --mimir-shadow-lg:   0 8px 40px rgba(0, 0, 0, 0.5);
+  --mimir-glow-orange: 0 4px 15px rgba(232, 119, 58, 0.35);
+  --mimir-glow-purple: 0 0 8px rgba(187,0,187, 0.3);
+
+  --mimir-blur:        blur(12px); /* @kind other */
+  --mimir-blur-strong: blur(20px); /* @kind other */
+
+  --mimir-ease:        cubic-bezier(0.4, 0, 0.2, 1); /* @kind other */
+  --mimir-transition:  all 0.25s ease; /* @kind other */
+}
+
+
+/* ============================================================
+   SEMANTIC TEXT ROLES
+   ============================================================
+   Use these classes OR copy the rules into your component.
+   ============================================================ */
+
+.mimir-h1 {
+  font-family: var(--mimir-font-display);
+  font-weight: var(--mimir-fw-bold);
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  line-height: 1.1;
+  letter-spacing: var(--mimir-track-tight);
+  color: var(--mimir-fg);
+  background: var(--mimir-gradient-title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.mimir-h2 {
+  font-family: var(--mimir-font-display);
+  font-weight: var(--mimir-fw-semibold);
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  line-height: 1.2;
+  letter-spacing: var(--mimir-track-tight);
+  color: var(--mimir-fg);
+}
+
+.mimir-h3 {
+  font-family: var(--mimir-font-display);
+  font-weight: var(--mimir-fw-semibold);
+  font-size: 1.1rem;
+  line-height: 1.3;
+  color: rgba(240, 240, 245, 0.85);
+}
+
+.mimir-tagline {
+  font-family: var(--mimir-font-tagline);
+  font-weight: var(--mimir-fw-light);
+  font-size: 1.35rem;
+  line-height: 1.5;
+  color: var(--mimir-fg1);
+}
+
+.mimir-body {
+  font-family: var(--mimir-font-body);
+  font-weight: var(--mimir-fw-regular);
+  font-size: var(--mimir-fs-base);
+  line-height: 1.6;
+  color: var(--mimir-fg1);
+  letter-spacing: var(--mimir-track-body);
+}
+
+.mimir-body-sm {
+  font-family: var(--mimir-font-body);
+  font-weight: var(--mimir-fw-regular);
+  font-size: var(--mimir-fs-sm);
+  line-height: 1.55;
+  color: var(--mimir-fg2);
+}
+
+.mimir-meta {
+  font-family: var(--mimir-font-body);
+  font-weight: var(--mimir-fw-regular);
+  font-size: var(--mimir-fs-xs);
+  color: var(--mimir-fg3);
+  letter-spacing: 0.01em;
+}
+
+.mimir-label {
+  font-family: var(--mimir-font-display);
+  font-weight: var(--mimir-fw-medium);
+  font-size: var(--mimir-fs-xxs);
+  text-transform: uppercase;
+  letter-spacing: var(--mimir-track-micro);
+  color: var(--mimir-fg3);
+}
+
+.mimir-eyebrow {
+  font-family: var(--mimir-font-display);
+  font-weight: var(--mimir-fw-semibold);
+  font-size: 0.95rem;
+  letter-spacing: var(--mimir-track-label);
+  text-transform: uppercase;
+  color: var(--mimir-fg2);
+}
+.mimir-eyebrow .accent { color: var(--mimir-orange); font-weight: var(--mimir-fw-bold); }
+
+.mimir-code {
+  font-family: var(--mimir-font-mono);
+  font-size: 0.85em;
+  background: rgba(187,0,187, 0.12);
+  color: var(--mimir-purple-light);
+  padding: 0.15em 0.4em;
+  border-radius: var(--mimir-radius-xs);
+}
+
+.mimir-stat {
+  font-family: var(--mimir-font-display);
+  font-weight: var(--mimir-fw-bold);
+  font-size: 2.4rem;
+  line-height: 1.1;
+  color: var(--mimir-magenta);
+  letter-spacing: var(--mimir-track-tight);
+}
